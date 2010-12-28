@@ -7,6 +7,7 @@
 //
 
 #import "LotteryViewController.h"
+#import "LinkViewController.h"
 #import "Lottery.h"
 #import "LotteryTwo.h"
 #import "LotteryThree.h"
@@ -27,15 +28,27 @@
 	}
 	self.title = @"Ganadores";
 	self.navigationController.navigationBar.topItem.title = @"Números Ganadores";
+	
+	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] init];
+	barButtonItem.title = @"Ganadores";
+	self.navigationItem.backBarButtonItem = barButtonItem;
+	[barButtonItem release];
+	
+	[self loadNumbers:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 	
-	[self loadNumbers];
+	UIBarButtonItem *reloadButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+																					target:self
+																					action:@selector(loadNumbers:)];
+	
+	[[self navigationItem] setRightBarButtonItem:reloadButtonItem];
+	[reloadButtonItem release];
 }
 
-- (void)loadNumbers {
+- (IBAction)loadNumbers:(id)sender {
 	// Construct the web service URL
 	NSURL *url = [NSURL URLWithString:@"http://loteriaelectronicapr.com/"
 				  @"rss/rss.aspx"];
@@ -99,7 +112,7 @@
 		pegaTres = nil;
 	}
 	
-	if ([lotteryNumbers objectForKey:@"pegaCuatroKey"] == nil) {
+	if ([lotteryNumbers objectForKey:@"pegaDosKey"] == nil) {
 		LotteryTwo *pegaDos = [[LotteryTwo alloc] initWithName:PegaDosTitle];
 		[lotteryNumbers setObject:pegaDos forKey:@"pegaDosKey"];
 		[pegaDos release];
@@ -142,7 +155,7 @@ didStartElement:(NSString *)elementName
 		NSArray *titleAndNumber = [titleString componentsSeparatedByString:@" - "];
 		
 		if ([LotoTitle isEqualToString:[titleAndNumber objectAtIndex:0]]) {
-			LotterySix *loto = [[LotterySix alloc] initWithName:[titleAndNumber objectAtIndex:0]
+			LotterySix *loto = [[LotterySix alloc] initWithName:LotoTitle
 														numbers:[titleAndNumber objectAtIndex:1]
 														   date:dateString];
 			[lotteryNumbers setObject:loto forKey:@"lotoKey"];
@@ -151,7 +164,7 @@ didStartElement:(NSString *)elementName
 		}
 		
 		if ([RevanchaTitle isEqualToString:[titleAndNumber objectAtIndex:0]]) {
-			LotterySix *revancha = [[LotterySix alloc] initWithName:[titleAndNumber objectAtIndex:0]
+			LotterySix *revancha = [[LotterySix alloc] initWithName:RevanchaTitle
 															numbers:[titleAndNumber objectAtIndex:1]
 															   date:dateString];
 			[lotteryNumbers setObject:revancha forKey:@"revanchaKey"];
@@ -160,7 +173,7 @@ didStartElement:(NSString *)elementName
 		}
 		
 		if ([PegaCuatroTitle isEqualToString:[titleAndNumber objectAtIndex:0]]) {
-			LotteryFour *pegaCuatro = [[LotteryFour alloc] initWithName:[titleAndNumber objectAtIndex:0]
+			LotteryFour *pegaCuatro = [[LotteryFour alloc] initWithName:PegaCuatroTitle
 																numbers:[titleAndNumber objectAtIndex:1]
 																   date:dateString];
 			[lotteryNumbers setObject:pegaCuatro forKey:@"pegaCuatroKey"];
@@ -169,7 +182,7 @@ didStartElement:(NSString *)elementName
 		}
 		
 		if ([PegaTresTitle isEqualToString:[titleAndNumber objectAtIndex:0]]) {
-			LotteryThree *pegaTres = [[LotteryThree alloc] initWithName:[titleAndNumber objectAtIndex:0]
+			LotteryThree *pegaTres = [[LotteryThree alloc] initWithName:PegaTresTitle
 																numbers:[titleAndNumber objectAtIndex:1]
 																   date:dateString];
 			[lotteryNumbers setObject:pegaTres forKey:@"pegaTresKey"];
@@ -178,7 +191,7 @@ didStartElement:(NSString *)elementName
 		}
 		
 		if ([PegaDosTitle isEqualToString:[titleAndNumber objectAtIndex:0]]) {
-			LotteryTwo *pegaDos = [[LotteryTwo alloc] initWithName:[titleAndNumber objectAtIndex:0]
+			LotteryTwo *pegaDos = [[LotteryTwo alloc] initWithName:PegaDosTitle
 																numbers:[titleAndNumber objectAtIndex:1]
 																   date:dateString];
 			[lotteryNumbers setObject:pegaDos forKey:@"pegaDosKey"];
@@ -235,6 +248,9 @@ didStartElement:(NSString *)elementName
 	[formatter setLocale: usLocale];
 	[usLocale release];
 	
+	//[formatter setTimeZone:[NSTimeZone systemTimeZone]];
+	// The original date string was in GMT
+	[formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
 	[formatter setDateFormat:@"EEE, dd MMM yyyy"];
 	
 	UIImageView *logoView = (UIImageView *)[cell viewWithTag:1];
@@ -247,6 +263,8 @@ didStartElement:(NSString *)elementName
 		
 		LotterySix *loto = [lotteryNumbers objectForKey:@"lotoKey"];
 		dateLabel.text = [formatter stringFromDate:loto.drawDate];
+		
+		NSLog(@"Date: %@", [loto drawDate]);
 		
 		[self addNumberLabelsToView:numbersView withNumbers:[loto winningNumbers]];
 	} else if (indexPath.row == 1) {
@@ -286,6 +304,28 @@ didStartElement:(NSString *)elementName
 	[formatter release];
 	
     return cell;
+}
+
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (linkViewController == nil) {
+		linkViewController = [[LinkViewController alloc] init];
+	}
+	
+	if (indexPath.row == 0) {
+		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:@"lotoKey"]];
+	} else if (indexPath.row == 1) {
+		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:@"revanchaKey"]];
+	} else if (indexPath.row == 2) {
+		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:@"pegaCuatroKey"]];
+	} else if (indexPath.row == 3) {
+		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:@"pegaTresKey"]];
+	} else if (indexPath.row == 4) {
+		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:@"pegaDosKey"]];
+	}
+
+	linkViewController.hidesBottomBarWhenPushed = YES;
+	[[self navigationController] pushViewController:linkViewController 
+										   animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

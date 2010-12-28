@@ -46,6 +46,12 @@
 		16F7DCAE12C7DF1D00F50025 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F7DCA612C7DF1D00F50025 /* star@2x.png */; };
 		16F7DD9A12C7FC4900F50025 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F7DD9812C7FC4900F50025 /* info.png */; };
 		16F7DD9B12C7FC4900F50025 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F7DD9912C7FC4900F50025 /* info@2x.png */; };
+		16FD674A12C8E1EC0082FD30 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FD674812C8E1EC0082FD30 /* LinkViewController.m */; };
+		16FD674B12C8E1EC0082FD30 /* LinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FD674912C8E1EC0082FD30 /* LinkViewController.xib */; };
+		16FD676D12C8F0FF0082FD30 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FD676912C8F0FF0082FD30 /* back.png */; };
+		16FD676E12C8F0FF0082FD30 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FD676A12C8F0FF0082FD30 /* back@2x.png */; };
+		16FD676F12C8F0FF0082FD30 /* front.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FD676B12C8F0FF0082FD30 /* front.png */; };
+		16FD677012C8F0FF0082FD30 /* front@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FD676C12C8F0FF0082FD30 /* front@2x.png */; };
 		1D3623260D0F684500981E51 /* LotteryPRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* LotteryPRAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -103,6 +109,13 @@
 		16F7DCA612C7DF1D00F50025 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		16F7DD9812C7FC4900F50025 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		16F7DD9912C7FC4900F50025 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
+		16FD674712C8E1EC0082FD30 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkViewController.h; sourceTree = "<group>"; };
+		16FD674812C8E1EC0082FD30 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
+		16FD674912C8E1EC0082FD30 /* LinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkViewController.xib; sourceTree = "<group>"; };
+		16FD676912C8F0FF0082FD30 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		16FD676A12C8F0FF0082FD30 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		16FD676B12C8F0FF0082FD30 /* front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front.png; sourceTree = "<group>"; };
+		16FD676C12C8F0FF0082FD30 /* front@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front@2x.png"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* LotteryPRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryPRAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* LotteryPRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryPRAppDelegate.m; sourceTree = "<group>"; };
@@ -152,6 +165,8 @@
 				16F7DC4F12C7D01A00F50025 /* LotteryThree.m */,
 				16F7DC6112C7D38500F50025 /* LotteryTwo.h */,
 				16F7DC6212C7D38500F50025 /* LotteryTwo.m */,
+				16FD674712C8E1EC0082FD30 /* LinkViewController.h */,
+				16FD674812C8E1EC0082FD30 /* LinkViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -159,6 +174,10 @@
 		1695FEDF12C3EFA100C8DE7D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				16FD676912C8F0FF0082FD30 /* back.png */,
+				16FD676A12C8F0FF0082FD30 /* back@2x.png */,
+				16FD676B12C8F0FF0082FD30 /* front.png */,
+				16FD676C12C8F0FF0082FD30 /* front@2x.png */,
 				16F7DD9812C7FC4900F50025 /* info.png */,
 				16F7DD9912C7FC4900F50025 /* info@2x.png */,
 				16F7DC9F12C7DF1D00F50025 /* dice.png */,
@@ -221,6 +240,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				16FD674912C8E1EC0082FD30 /* LinkViewController.xib */,
 				1695FF2612C3F68100C8DE7D /* AboutViewController.xib */,
 				1695FEDF12C3EFA100C8DE7D /* images */,
 				8D1107310486CEB800E47090 /* LotteryPR-Info.plist */,
@@ -322,6 +342,11 @@
 				16F7DCAE12C7DF1D00F50025 /* star@2x.png in Resources */,
 				16F7DD9A12C7FC4900F50025 /* info.png in Resources */,
 				16F7DD9B12C7FC4900F50025 /* info@2x.png in Resources */,
+				16FD674B12C8E1EC0082FD30 /* LinkViewController.xib in Resources */,
+				16FD676D12C8F0FF0082FD30 /* back.png in Resources */,
+				16FD676E12C8F0FF0082FD30 /* back@2x.png in Resources */,
+				16FD676F12C8F0FF0082FD30 /* front.png in Resources */,
+				16FD677012C8F0FF0082FD30 /* front@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +368,7 @@
 				16F7DBBE12C7B68900F50025 /* LotteryFour.m in Sources */,
 				16F7DC5012C7D01A00F50025 /* LotteryThree.m in Sources */,
 				16F7DC6312C7D38500F50025 /* LotteryTwo.m in Sources */,
+				16FD674A12C8E1EC0082FD30 /* LinkViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

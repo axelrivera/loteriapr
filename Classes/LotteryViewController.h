@@ -6,9 +6,14 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-@interface LotteryViewController : UITableViewController <NSXMLParserDelegate> {	
+@class LinkViewController;
+
+@interface LotteryViewController : UITableViewController <NSXMLParserDelegate> {
+	LinkViewController *linkViewController;
+	
 	BOOL waitingForItemTitle;
 	BOOL waitingForItemDate;
+	
 	NSMutableDictionary *lotteryNumbers;
     NSMutableData *xmlData; 
 	NSURLConnection *connectionInProgress;
@@ -17,12 +22,12 @@
 	NSMutableString *titleString;
 	NSMutableString *dateString;
 	
-	UITableViewCell *nibLoadedCell;
+	UITableViewCell *nibLoadedCell;	
 }
 
 @property (nonatomic, retain) IBOutlet UITableViewCell *nibLoadedCell;
 
-- (void)loadNumbers;
+- (IBAction)loadNumbers:(id)sender;
 
 - (UILabel *)numberLabel:(NSNumber *)num withPoint:(CGPoint)pt;
 

@@ -63,6 +63,7 @@
 	[formatter setLocale: usLocale];
 	[usLocale release];
 	
+	[formatter setTimeZone:[NSTimeZone systemTimeZone]];
 	[formatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss zzz"];
 	
 	NSDate *date = [formatter dateFromString: dateString];
