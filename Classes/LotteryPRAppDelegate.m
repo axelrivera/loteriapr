@@ -20,6 +20,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+		
+	[[tabBarController.viewControllers objectAtIndex:0] setTitle:@"Ganadores"];
+	[[tabBarController.viewControllers objectAtIndex:1] setTitle:@"Automática"];
+	[[tabBarController.viewControllers objectAtIndex:2] setTitle:@"¿Quién?"];
+	
     [self.window addSubview:tabBarController.view];
     [self.window makeKeyAndVisible];
     

@@ -26,7 +26,6 @@
 	if (lotteryNumbers == nil) {
 		lotteryNumbers = [[NSMutableDictionary alloc] init];
 	}
-	self.title = @"Ganadores";
 	self.navigationController.navigationBar.topItem.title = @"Números Ganadores";
 	
 	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] init];
@@ -355,7 +354,6 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)viewDidUnload {
-	[nibLoadedCell release];
 	nibLoadedCell = nil;
 	[super viewDidUnload];
 }

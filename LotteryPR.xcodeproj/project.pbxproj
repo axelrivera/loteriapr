@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161C0FFA12CCE759004C2ACC /* picker_button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C0FF812CCE759004C2ACC /* picker_button_bg.png */; };
+		161C0FFB12CCE759004C2ACC /* picker_button_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C0FF912CCE759004C2ACC /* picker_button_bg@2x.png */; };
+		161C102512CCF3EC004C2ACC /* blue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C102112CCF3EC004C2ACC /* blue_button.png */; };
+		161C102612CCF3EC004C2ACC /* blue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C102212CCF3EC004C2ACC /* blue_button@2x.png */; };
+		161C102712CCF3EC004C2ACC /* red_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C102312CCF3EC004C2ACC /* red_button.png */; };
+		161C102812CCF3EC004C2ACC /* red_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C102412CCF3EC004C2ACC /* red_button@2x.png */; };
+		161C105112CD0CCD004C2ACC /* picker_number_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C104F12CD0CCD004C2ACC /* picker_number_bg.png */; };
+		161C105212CD0CCD004C2ACC /* picker_number_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C105012CD0CCD004C2ACC /* picker_number_bg@2x.png */; };
+		161C105512CD0D74004C2ACC /* PickerNumbers.m in Sources */ = {isa = PBXBuildFile; fileRef = 161C105412CD0D74004C2ACC /* PickerNumbers.m */; };
+		161C115812CD38FC004C2ACC /* picker_loto_circles.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C115012CD38FC004C2ACC /* picker_loto_circles.png */; };
+		161C115912CD38FC004C2ACC /* picker_loto_circles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C115112CD38FC004C2ACC /* picker_loto_circles@2x.png */; };
+		161C115A12CD38FC004C2ACC /* picker_pegacuatro_circles.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C115212CD38FC004C2ACC /* picker_pegacuatro_circles.png */; };
+		161C115B12CD38FC004C2ACC /* picker_pegacuatro_circles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C115312CD38FC004C2ACC /* picker_pegacuatro_circles@2x.png */; };
+		161C115C12CD38FC004C2ACC /* picker_pegados_circles.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C115412CD38FC004C2ACC /* picker_pegados_circles.png */; };
+		161C115D12CD38FC004C2ACC /* picker_pegados_circles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C115512CD38FC004C2ACC /* picker_pegados_circles@2x.png */; };
+		161C115E12CD38FC004C2ACC /* picker_pegatres_circles.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C115612CD38FC004C2ACC /* picker_pegatres_circles.png */; };
+		161C115F12CD38FC004C2ACC /* picker_pegatres_circles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 161C115712CD38FC004C2ACC /* picker_pegatres_circles@2x.png */; };
+		1673EAA312CA4690009B2255 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673EAA212CA4690009B2255 /* PickerViewController.m */; };
+		1673EAA512CA46A7009B2255 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1673EAA412CA46A7009B2255 /* PickerViewController.xib */; };
+		1673EB3E12CA6AED009B2255 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673EB3D12CA6AED009B2255 /* NSMutableArray+Shuffle.m */; };
 		1689A01412C5152C00E194D1 /* circle_four.png in Resources */ = {isa = PBXBuildFile; fileRef = 1689A00C12C5152C00E194D1 /* circle_four.png */; };
 		1689A01512C5152C00E194D1 /* circle_four@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1689A00D12C5152C00E194D1 /* circle_four@2x.png */; };
 		1689A01612C5152C00E194D1 /* circle_six.png in Resources */ = {isa = PBXBuildFile; fileRef = 1689A00E12C5152C00E194D1 /* circle_six.png */; };
@@ -35,6 +55,15 @@
 		1695FF2712C3F68100C8DE7D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1695FF2512C3F68100C8DE7D /* AboutViewController.m */; };
 		1695FF2812C3F68100C8DE7D /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1695FF2612C3F68100C8DE7D /* AboutViewController.xib */; };
 		1695FFB412C4095600C8DE7D /* LotteryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1695FFB312C4095600C8DE7D /* LotteryTableCell.xib */; };
+		16D032B412CC0C0B00D29AA7 /* QuickPickTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D032B312CC0C0B00D29AA7 /* QuickPickTableCell.xib */; };
+		16D032EC12CC162A00D29AA7 /* loto_sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D032E412CC162A00D29AA7 /* loto_sphere.png */; };
+		16D032ED12CC162A00D29AA7 /* loto_sphere@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D032E512CC162A00D29AA7 /* loto_sphere@2x.png */; };
+		16D032EE12CC162A00D29AA7 /* pegacuatro_sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D032E612CC162A00D29AA7 /* pegacuatro_sphere.png */; };
+		16D032EF12CC162A00D29AA7 /* pegacuatro_sphere@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D032E712CC162A00D29AA7 /* pegacuatro_sphere@2x.png */; };
+		16D032F012CC162A00D29AA7 /* pegados_sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D032E812CC162A00D29AA7 /* pegados_sphere.png */; };
+		16D032F112CC162A00D29AA7 /* pegados_sphere@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D032E912CC162A00D29AA7 /* pegados_sphere@2x.png */; };
+		16D032F212CC162A00D29AA7 /* pegatres_sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D032EA12CC162A00D29AA7 /* pegatres_sphere.png */; };
+		16D032F312CC162A00D29AA7 /* pegatres_sphere@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D032EB12CC162A00D29AA7 /* pegatres_sphere@2x.png */; };
 		16F7DBBE12C7B68900F50025 /* LotteryFour.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F7DBBD12C7B68900F50025 /* LotteryFour.m */; };
 		16F7DC5012C7D01A00F50025 /* LotteryThree.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F7DC4F12C7D01A00F50025 /* LotteryThree.m */; };
 		16F7DC6312C7D38500F50025 /* LotteryTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F7DC6212C7D38500F50025 /* LotteryTwo.m */; };
@@ -48,10 +77,6 @@
 		16F7DD9B12C7FC4900F50025 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F7DD9912C7FC4900F50025 /* info@2x.png */; };
 		16FD674A12C8E1EC0082FD30 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FD674812C8E1EC0082FD30 /* LinkViewController.m */; };
 		16FD674B12C8E1EC0082FD30 /* LinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FD674912C8E1EC0082FD30 /* LinkViewController.xib */; };
-		16FD676D12C8F0FF0082FD30 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FD676912C8F0FF0082FD30 /* back.png */; };
-		16FD676E12C8F0FF0082FD30 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FD676A12C8F0FF0082FD30 /* back@2x.png */; };
-		16FD676F12C8F0FF0082FD30 /* front.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FD676B12C8F0FF0082FD30 /* front.png */; };
-		16FD677012C8F0FF0082FD30 /* front@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FD676C12C8F0FF0082FD30 /* front@2x.png */; };
 		1D3623260D0F684500981E51 /* LotteryPRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* LotteryPRAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -61,6 +86,29 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		161C0FF812CCE759004C2ACC /* picker_button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picker_button_bg.png; sourceTree = "<group>"; };
+		161C0FF912CCE759004C2ACC /* picker_button_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker_button_bg@2x.png"; sourceTree = "<group>"; };
+		161C102112CCF3EC004C2ACC /* blue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_button.png; sourceTree = "<group>"; };
+		161C102212CCF3EC004C2ACC /* blue_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_button@2x.png"; sourceTree = "<group>"; };
+		161C102312CCF3EC004C2ACC /* red_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_button.png; sourceTree = "<group>"; };
+		161C102412CCF3EC004C2ACC /* red_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_button@2x.png"; sourceTree = "<group>"; };
+		161C104F12CD0CCD004C2ACC /* picker_number_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picker_number_bg.png; sourceTree = "<group>"; };
+		161C105012CD0CCD004C2ACC /* picker_number_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker_number_bg@2x.png"; sourceTree = "<group>"; };
+		161C105312CD0D74004C2ACC /* PickerNumbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerNumbers.h; sourceTree = "<group>"; };
+		161C105412CD0D74004C2ACC /* PickerNumbers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerNumbers.m; sourceTree = "<group>"; };
+		161C115012CD38FC004C2ACC /* picker_loto_circles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picker_loto_circles.png; sourceTree = "<group>"; };
+		161C115112CD38FC004C2ACC /* picker_loto_circles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker_loto_circles@2x.png"; sourceTree = "<group>"; };
+		161C115212CD38FC004C2ACC /* picker_pegacuatro_circles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picker_pegacuatro_circles.png; sourceTree = "<group>"; };
+		161C115312CD38FC004C2ACC /* picker_pegacuatro_circles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker_pegacuatro_circles@2x.png"; sourceTree = "<group>"; };
+		161C115412CD38FC004C2ACC /* picker_pegados_circles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picker_pegados_circles.png; sourceTree = "<group>"; };
+		161C115512CD38FC004C2ACC /* picker_pegados_circles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker_pegados_circles@2x.png"; sourceTree = "<group>"; };
+		161C115612CD38FC004C2ACC /* picker_pegatres_circles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picker_pegatres_circles.png; sourceTree = "<group>"; };
+		161C115712CD38FC004C2ACC /* picker_pegatres_circles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker_pegatres_circles@2x.png"; sourceTree = "<group>"; };
+		1673EAA112CA4690009B2255 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
+		1673EAA212CA4690009B2255 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
+		1673EAA412CA46A7009B2255 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
+		1673EB3C12CA6AED009B2255 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
+		1673EB3D12CA6AED009B2255 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
 		1689A00C12C5152C00E194D1 /* circle_four.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_four.png; sourceTree = "<group>"; };
 		1689A00D12C5152C00E194D1 /* circle_four@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle_four@2x.png"; sourceTree = "<group>"; };
 		1689A00E12C5152C00E194D1 /* circle_six.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_six.png; sourceTree = "<group>"; };
@@ -95,6 +143,15 @@
 		1695FF2512C3F68100C8DE7D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		1695FF2612C3F68100C8DE7D /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		1695FFB312C4095600C8DE7D /* LotteryTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LotteryTableCell.xib; sourceTree = "<group>"; };
+		16D032B312CC0C0B00D29AA7 /* QuickPickTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickPickTableCell.xib; sourceTree = "<group>"; };
+		16D032E412CC162A00D29AA7 /* loto_sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loto_sphere.png; sourceTree = "<group>"; };
+		16D032E512CC162A00D29AA7 /* loto_sphere@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loto_sphere@2x.png"; sourceTree = "<group>"; };
+		16D032E612CC162A00D29AA7 /* pegacuatro_sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pegacuatro_sphere.png; sourceTree = "<group>"; };
+		16D032E712CC162A00D29AA7 /* pegacuatro_sphere@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pegacuatro_sphere@2x.png"; sourceTree = "<group>"; };
+		16D032E812CC162A00D29AA7 /* pegados_sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pegados_sphere.png; sourceTree = "<group>"; };
+		16D032E912CC162A00D29AA7 /* pegados_sphere@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pegados_sphere@2x.png"; sourceTree = "<group>"; };
+		16D032EA12CC162A00D29AA7 /* pegatres_sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pegatres_sphere.png; sourceTree = "<group>"; };
+		16D032EB12CC162A00D29AA7 /* pegatres_sphere@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pegatres_sphere@2x.png"; sourceTree = "<group>"; };
 		16F7DBBC12C7B68900F50025 /* LotteryFour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryFour.h; sourceTree = "<group>"; };
 		16F7DBBD12C7B68900F50025 /* LotteryFour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryFour.m; sourceTree = "<group>"; };
 		16F7DC4E12C7D01A00F50025 /* LotteryThree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryThree.h; sourceTree = "<group>"; };
@@ -112,10 +169,6 @@
 		16FD674712C8E1EC0082FD30 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkViewController.h; sourceTree = "<group>"; };
 		16FD674812C8E1EC0082FD30 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
 		16FD674912C8E1EC0082FD30 /* LinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkViewController.xib; sourceTree = "<group>"; };
-		16FD676912C8F0FF0082FD30 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		16FD676A12C8F0FF0082FD30 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
-		16FD676B12C8F0FF0082FD30 /* front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front.png; sourceTree = "<group>"; };
-		16FD676C12C8F0FF0082FD30 /* front@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front@2x.png"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* LotteryPRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryPRAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* LotteryPRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryPRAppDelegate.m; sourceTree = "<group>"; };
@@ -167,6 +220,12 @@
 				16F7DC6212C7D38500F50025 /* LotteryTwo.m */,
 				16FD674712C8E1EC0082FD30 /* LinkViewController.h */,
 				16FD674812C8E1EC0082FD30 /* LinkViewController.m */,
+				1673EAA112CA4690009B2255 /* PickerViewController.h */,
+				1673EAA212CA4690009B2255 /* PickerViewController.m */,
+				1673EB3C12CA6AED009B2255 /* NSMutableArray+Shuffle.h */,
+				1673EB3D12CA6AED009B2255 /* NSMutableArray+Shuffle.m */,
+				161C105312CD0D74004C2ACC /* PickerNumbers.h */,
+				161C105412CD0D74004C2ACC /* PickerNumbers.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -174,10 +233,30 @@
 		1695FEDF12C3EFA100C8DE7D /* images */ = {
 			isa = PBXGroup;
 			children = (
-				16FD676912C8F0FF0082FD30 /* back.png */,
-				16FD676A12C8F0FF0082FD30 /* back@2x.png */,
-				16FD676B12C8F0FF0082FD30 /* front.png */,
-				16FD676C12C8F0FF0082FD30 /* front@2x.png */,
+				161C115012CD38FC004C2ACC /* picker_loto_circles.png */,
+				161C115112CD38FC004C2ACC /* picker_loto_circles@2x.png */,
+				161C115212CD38FC004C2ACC /* picker_pegacuatro_circles.png */,
+				161C115312CD38FC004C2ACC /* picker_pegacuatro_circles@2x.png */,
+				161C115412CD38FC004C2ACC /* picker_pegados_circles.png */,
+				161C115512CD38FC004C2ACC /* picker_pegados_circles@2x.png */,
+				161C115612CD38FC004C2ACC /* picker_pegatres_circles.png */,
+				161C115712CD38FC004C2ACC /* picker_pegatres_circles@2x.png */,
+				161C104F12CD0CCD004C2ACC /* picker_number_bg.png */,
+				161C105012CD0CCD004C2ACC /* picker_number_bg@2x.png */,
+				161C102112CCF3EC004C2ACC /* blue_button.png */,
+				161C102212CCF3EC004C2ACC /* blue_button@2x.png */,
+				161C102312CCF3EC004C2ACC /* red_button.png */,
+				161C102412CCF3EC004C2ACC /* red_button@2x.png */,
+				161C0FF812CCE759004C2ACC /* picker_button_bg.png */,
+				161C0FF912CCE759004C2ACC /* picker_button_bg@2x.png */,
+				16D032E412CC162A00D29AA7 /* loto_sphere.png */,
+				16D032E512CC162A00D29AA7 /* loto_sphere@2x.png */,
+				16D032E612CC162A00D29AA7 /* pegacuatro_sphere.png */,
+				16D032E712CC162A00D29AA7 /* pegacuatro_sphere@2x.png */,
+				16D032E812CC162A00D29AA7 /* pegados_sphere.png */,
+				16D032E912CC162A00D29AA7 /* pegados_sphere@2x.png */,
+				16D032EA12CC162A00D29AA7 /* pegatres_sphere.png */,
+				16D032EB12CC162A00D29AA7 /* pegatres_sphere@2x.png */,
 				16F7DD9812C7FC4900F50025 /* info.png */,
 				16F7DD9912C7FC4900F50025 /* info@2x.png */,
 				16F7DC9F12C7DF1D00F50025 /* dice.png */,
@@ -245,9 +324,11 @@
 				1695FEDF12C3EFA100C8DE7D /* images */,
 				8D1107310486CEB800E47090 /* LotteryPR-Info.plist */,
 				1695FFB312C4095600C8DE7D /* LotteryTableCell.xib */,
+				16D032B312CC0C0B00D29AA7 /* QuickPickTableCell.xib */,
 				1695FF0612C3F02300C8DE7D /* LotteryViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				1695FF2112C3F63C00C8DE7D /* QuickPickViewController.xib */,
+				1673EAA412CA46A7009B2255 /* PickerViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -343,10 +424,32 @@
 				16F7DD9A12C7FC4900F50025 /* info.png in Resources */,
 				16F7DD9B12C7FC4900F50025 /* info@2x.png in Resources */,
 				16FD674B12C8E1EC0082FD30 /* LinkViewController.xib in Resources */,
-				16FD676D12C8F0FF0082FD30 /* back.png in Resources */,
-				16FD676E12C8F0FF0082FD30 /* back@2x.png in Resources */,
-				16FD676F12C8F0FF0082FD30 /* front.png in Resources */,
-				16FD677012C8F0FF0082FD30 /* front@2x.png in Resources */,
+				1673EAA512CA46A7009B2255 /* PickerViewController.xib in Resources */,
+				16D032B412CC0C0B00D29AA7 /* QuickPickTableCell.xib in Resources */,
+				16D032EC12CC162A00D29AA7 /* loto_sphere.png in Resources */,
+				16D032ED12CC162A00D29AA7 /* loto_sphere@2x.png in Resources */,
+				16D032EE12CC162A00D29AA7 /* pegacuatro_sphere.png in Resources */,
+				16D032EF12CC162A00D29AA7 /* pegacuatro_sphere@2x.png in Resources */,
+				16D032F012CC162A00D29AA7 /* pegados_sphere.png in Resources */,
+				16D032F112CC162A00D29AA7 /* pegados_sphere@2x.png in Resources */,
+				16D032F212CC162A00D29AA7 /* pegatres_sphere.png in Resources */,
+				16D032F312CC162A00D29AA7 /* pegatres_sphere@2x.png in Resources */,
+				161C0FFA12CCE759004C2ACC /* picker_button_bg.png in Resources */,
+				161C0FFB12CCE759004C2ACC /* picker_button_bg@2x.png in Resources */,
+				161C102512CCF3EC004C2ACC /* blue_button.png in Resources */,
+				161C102612CCF3EC004C2ACC /* blue_button@2x.png in Resources */,
+				161C102712CCF3EC004C2ACC /* red_button.png in Resources */,
+				161C102812CCF3EC004C2ACC /* red_button@2x.png in Resources */,
+				161C105112CD0CCD004C2ACC /* picker_number_bg.png in Resources */,
+				161C105212CD0CCD004C2ACC /* picker_number_bg@2x.png in Resources */,
+				161C115812CD38FC004C2ACC /* picker_loto_circles.png in Resources */,
+				161C115912CD38FC004C2ACC /* picker_loto_circles@2x.png in Resources */,
+				161C115A12CD38FC004C2ACC /* picker_pegacuatro_circles.png in Resources */,
+				161C115B12CD38FC004C2ACC /* picker_pegacuatro_circles@2x.png in Resources */,
+				161C115C12CD38FC004C2ACC /* picker_pegados_circles.png in Resources */,
+				161C115D12CD38FC004C2ACC /* picker_pegados_circles@2x.png in Resources */,
+				161C115E12CD38FC004C2ACC /* picker_pegatres_circles.png in Resources */,
+				161C115F12CD38FC004C2ACC /* picker_pegatres_circles@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +472,9 @@
 				16F7DC5012C7D01A00F50025 /* LotteryThree.m in Sources */,
 				16F7DC6312C7D38500F50025 /* LotteryTwo.m in Sources */,
 				16FD674A12C8E1EC0082FD30 /* LinkViewController.m in Sources */,
+				1673EAA312CA4690009B2255 /* PickerViewController.m in Sources */,
+				1673EB3E12CA6AED009B2255 /* NSMutableArray+Shuffle.m in Sources */,
+				161C105512CD0D74004C2ACC /* PickerNumbers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

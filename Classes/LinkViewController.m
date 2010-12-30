@@ -16,7 +16,8 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
-	NSLog(@"%@", [activeLottery gameName]);
+	self.title = [activeLottery gameName];
+	
 	NSURL *url = nil;
 	if ([LotoTitle isEqualToString:[activeLottery gameName]]) {
 		url = [NSURL URLWithString:LotoUrl];
@@ -46,7 +47,6 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.title = [activeLottery gameName];
 }
 
 - (void)setActiveLottery:(Lottery *)lottery {
