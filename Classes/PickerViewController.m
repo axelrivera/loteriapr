@@ -55,9 +55,7 @@
 		self.title = PegaDosTitle;
 		[self showPicker:twoPickerView];
 		[self showLabelView:twoLabelView];
-	}
-	
-	[self performSelector:@selector(shakePicker:) withObject:nil afterDelay:1];
+	}	
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -79,7 +77,7 @@
 	UIImage *stretchableButtonImagePressed = [buttonImagePressed stretchableImageWithLeftCapWidth:13 topCapHeight:0];
 	[shakeButton setBackgroundImage:stretchableButtonImagePressed forState:UIControlStateHighlighted];
 	
-	[shakeButton setTitle:@"Lotería Automática" forState:UIControlStateNormal];
+	[shakeButton setTitle:@"Comenzar" forState:UIControlStateNormal];
 	shakeButton.titleLabel.textAlignment = UITextAlignmentCenter;
 	
 	[self setupLottery];
@@ -148,7 +146,7 @@
 	
 	if (currentPicker == sixPickerView) {
 		// In a Loto array numbers cannot be repeated. That's why we only load the array and shuffle just once.
-		NSMutableArray *lotoArray = [self lotteryArrayWithMin:LOTO_MIN max:LOTO_MAX];
+		NSMutableArray *lotoArray = [[self lotteryArrayWithMin:LOTO_MIN max:LOTO_MAX] retain];
 		
 		[lotoArray shuffleWithCount:SHUFFLE_COUNT];
 		
@@ -162,7 +160,7 @@
 	} else {
 		// In all the other games the numbers can be repeated. We create and shuffle the array at every iteration.
 		for (NSInteger i = 0; i < [currentPicker numberOfComponents]; i++) {
-			NSMutableArray *lotteryArray = [self lotteryArrayWithMin:LOTTERY_MIN max:LOTTERY_MAX];
+			NSMutableArray *lotteryArray = [[self lotteryArrayWithMin:LOTTERY_MIN max:LOTTERY_MAX] retain];
 			[lotteryArray shuffleWithCount:SHUFFLE_COUNT];
 			[currentPicker selectRow:[[lotteryArray objectAtIndex:i] integerValue] inComponent:i animated:YES];
 			[numbersLabelArray addObject:[lotteryArray objectAtIndex:i]];
@@ -181,7 +179,7 @@
 }
 
 - (NSMutableArray *)lotteryArrayWithMin:(NSInteger)localMin max:(NSInteger)localMax {
-	NSMutableArray *localArray = [[NSMutableArray alloc] initWithCapacity:localMax];
+	NSMutableArray *localArray = [[[NSMutableArray alloc] initWithCapacity:localMax] autorelease];
 	for (NSInteger i = localMin; i <= localMax; i++) {
 		[localArray addObject:[NSNumber numberWithInteger:i]]; 
 	}
@@ -189,26 +187,26 @@
 }
 
 - (void) setupLottery {
-	lotoPickerArray = [self lotteryArrayWithMin:LOTO_MIN max:LOTO_MAX];
-	lotteryPickerArray = [self lotteryArrayWithMin:LOTTERY_MIN max:LOTTERY_MAX];
+	lotoPickerArray = [[self lotteryArrayWithMin:LOTO_MIN max:LOTO_MAX] retain];
+	lotteryPickerArray = [[self lotteryArrayWithMin:LOTTERY_MIN max:LOTTERY_MAX] retain];
 	
 	if (sixPickerView == nil) {
-		sixPickerView = [self createPicker];
+		sixPickerView = [[self createPicker] retain];
 		[self.view addSubview:sixPickerView];
 	}
 	
 	if (fourPickerView == nil) {
-		fourPickerView = [self createPicker];
+		fourPickerView = [[self createPicker] retain];
 		[self.view addSubview:fourPickerView];
 	}
 	
 	if (threePickerView == nil) {
-		threePickerView = [self createPicker];
+		threePickerView = [[self createPicker] retain];
 		[self.view addSubview:threePickerView];
 	}
 	
 	if (twoPickerView == nil) {
-		twoPickerView = [self createPicker];
+		twoPickerView = [[self createPicker] retain];
 		[self.view addSubview:twoPickerView];
 	}
 }
@@ -228,7 +226,7 @@
 	// you just need to set the correct origin in your view.
 	//
 	// position the picker at the bottom
-	UIPickerView *localPickerView = [[UIPickerView alloc] initWithFrame:CGRectZero];
+	UIPickerView *localPickerView = [[[UIPickerView alloc] initWithFrame:CGRectZero] autorelease];
 	CGSize pickerSize = [localPickerView sizeThatFits:CGSizeZero];
 	localPickerView.frame = [self pickerFrameWithSize:pickerSize];
 	
@@ -320,6 +318,5 @@
 	[threeLabelView release];
 	[twoLabelView release];
 }
-
 
 @end

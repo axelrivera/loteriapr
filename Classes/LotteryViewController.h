@@ -22,15 +22,22 @@
 	NSMutableString *titleString;
 	NSMutableString *dateString;
 	
-	UITableViewCell *nibLoadedCell;	
+	UITableViewCell *nibLoadedCell;
 }
 
 @property (nonatomic, retain) IBOutlet UITableViewCell *nibLoadedCell;
+@property (nonatomic, retain) NSMutableDictionary *lotteryNumbers;
 
 - (IBAction)loadNumbers:(id)sender;
 
 - (UILabel *)numberLabel:(NSNumber *)num withPoint:(CGPoint)pt;
 
 - (void)addNumberLabelsToView:(UIView *)numView withNumbers:(NSArray *)numArray;
+
+- (void)showLoadingButtonItem;
+
+- (void)showRefreshButtonItem;
+
+- (NSString *)lotteryFilePath;
 
 @end

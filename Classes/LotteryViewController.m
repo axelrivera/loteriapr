@@ -13,6 +13,7 @@
 #import "LotteryThree.h"
 #import "LotteryFour.h"
 #import "LotterySix.h"
+#import "FileHelpers.h"
 
 #define BALL_SIZE 35.0
 #define BALL_OFFSET 5.0
@@ -20,12 +21,10 @@
 @implementation LotteryViewController
 
 @synthesize nibLoadedCell;
+@synthesize lotteryNumbers;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	if (lotteryNumbers == nil) {
-		lotteryNumbers = [[NSMutableDictionary alloc] init];
-	}
 	self.navigationController.navigationBar.topItem.title = @"Números Ganadores";
 	
 	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] init];
@@ -33,24 +32,23 @@
 	self.navigationItem.backBarButtonItem = barButtonItem;
 	[barButtonItem release];
 	
+	[self showRefreshButtonItem];
+	
 	[self loadNumbers:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-	
-	UIBarButtonItem *reloadButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-																					target:self
-																					action:@selector(loadNumbers:)];
-	
-	[[self navigationItem] setRightBarButtonItem:reloadButtonItem];
-	[reloadButtonItem release];
 }
 
 - (IBAction)loadNumbers:(id)sender {
+	if (lotteryNumbers == nil) {
+		self.lotteryNumbers = [NSMutableDictionary dictionaryWithCapacity:5];
+	}
+	NSLog(@"load Numbers");
+	[self showLoadingButtonItem];
 	// Construct the web service URL
-	NSURL *url = [NSURL URLWithString:@"http://loteriaelectronicapr.com/"
-				  @"rss/rss.aspx"];
+	NSURL *url = [NSURL URLWithString:@"http://loteriaelectronicapr.com/rss/rss.aspx"];
 	
 	// Create a request object with that URL								  
 	NSURLRequest *request = [NSURLRequest requestWithURL:url 
@@ -117,8 +115,12 @@
 		[pegaDos release];
 		pegaDos = nil;
 	}
-		
+	
+	NSLog(@"Lottery Numbers: %@", lotteryNumbers);
+	
+	[NSKeyedArchiver archiveRootObject:lotteryNumbers toFile:[self lotteryFilePath]];
 	[[self tableView] reloadData];
+	[self showRefreshButtonItem];
 }
 
 - (void)parser:(NSXMLParser *)parser 
@@ -210,13 +212,18 @@ didStartElement:(NSString *)elementName
     xmlData = nil; 
     NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@", 
                              [error localizedDescription]]; 
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:errorString 
-                                                             delegate:nil 
-                                                    cancelButtonTitle:@"OK" 
-                                               destructiveButtonTitle:nil 
-                                                    otherButtonTitles:nil]; 
-    [actionSheet showInView:[[self view] window]];
-    [actionSheet autorelease]; 
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error"
+													message:errorString
+												   delegate:self
+										  cancelButtonTitle:@"OK"
+										  otherButtonTitles: nil];
+	[alert show];	
+	[alert release];
+	
+	[self showRefreshButtonItem];
+	
+	self.lotteryNumbers = [NSKeyedUnarchiver unarchiveObjectWithFile:[self lotteryFilePath]];
+	[[self tableView] reloadData];
 }    
 
 #pragma mark Table view methods
@@ -353,13 +360,49 @@ didStartElement:(NSString *)elementName
 	}
 }
 
+- (void)showLoadingButtonItem {
+	// initing the loading view
+	CGRect frame = CGRectMake(0.0, 0.0, 25.0, 25.0);
+	UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithFrame:frame];
+	[loading startAnimating];
+	[loading sizeToFit];
+	loading.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
+								UIViewAutoresizingFlexibleRightMargin |
+								UIViewAutoresizingFlexibleTopMargin |
+								UIViewAutoresizingFlexibleBottomMargin);
+	
+	// initing the bar button
+	UIBarButtonItem *loadingView = [[UIBarButtonItem alloc] initWithCustomView:loading];
+	
+	[loading release];
+	loadingView.target = self;
+	
+	self.navigationItem.rightBarButtonItem = loadingView;	
+}
+
+- (void)showRefreshButtonItem {
+	UIBarButtonItem *reloadButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+																					  target:self
+																					  action:@selector(loadNumbers:)];
+	
+	self.navigationItem.rightBarButtonItem = reloadButtonItem;
+	[reloadButtonItem release];
+}
+
+- (NSString *)lotteryFilePath {
+	return pathInDocumentDirectory(@"Lottery.data");
+}
+
+
 - (void)viewDidUnload {
 	nibLoadedCell = nil;
+	lotteryNumbers = nil;
 	[super viewDidUnload];
 }
 
 - (void)dealloc {
 	[nibLoadedCell release];
+	[lotteryNumbers release];
     [super dealloc];
 }
 

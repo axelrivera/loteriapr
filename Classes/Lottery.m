@@ -47,6 +47,21 @@
 	return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+	if (self = [super init]) { // this needs to be [super initWithCoder:aDecoder] if the superclass implements NSCoding
+		[self setGameName:[decoder decodeObjectForKey:@"gameName"]];
+		[self setDrawDate:[decoder decodeObjectForKey:@"drawDate"]];
+		[self setWinningNumbers:[decoder decodeObjectForKey:@"winningNumbers"]];	}
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+	// add [super encodeWithCoder:encoder] if the superclass implements NSCoding
+	[encoder encodeObject:gameName forKey:@"gameName"];
+	[encoder encodeObject:drawDate forKey:@"drawDate"];
+	[encoder encodeObject:winningNumbers forKey:@"winningNumbers"];
+}
+
 
 - (NSMutableArray *)emptyNumbersWithMax:(int)max {
 	NSMutableArray *array = [NSMutableArray arrayWithCapacity:max];
