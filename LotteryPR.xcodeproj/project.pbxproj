@@ -34,11 +34,13 @@
 		1662A3B512CE4F1D00273575 /* pegados@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1662A3B112CE4F1D00273575 /* pegados@2x.png */; };
 		1662A3B612CE4F1D00273575 /* pegatres.png in Resources */ = {isa = PBXBuildFile; fileRef = 1662A3B212CE4F1D00273575 /* pegatres.png */; };
 		1662A3B712CE4F1D00273575 /* pegatres@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1662A3B312CE4F1D00273575 /* pegatres@2x.png */; };
-		1662A3F212CE946C00273575 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1662A3F012CE946C00273575 /* Icon.png */; };
-		1662A3F312CE946C00273575 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1662A3F112CE946C00273575 /* Icon@2x.png */; };
 		1673EAA312CA4690009B2255 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673EAA212CA4690009B2255 /* PickerViewController.m */; };
 		1673EAA512CA46A7009B2255 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1673EAA412CA46A7009B2255 /* PickerViewController.xib */; };
 		1673EB3E12CA6AED009B2255 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673EB3D12CA6AED009B2255 /* NSMutableArray+Shuffle.m */; };
+		167AC16812D36EAE001615D6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 167AC16612D36EAE001615D6 /* Icon.png */; };
+		167AC16912D36EAE001615D6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 167AC16712D36EAE001615D6 /* Icon@2x.png */; };
+		167AC17012D37027001615D6 /* lottery_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 167AC16E12D37027001615D6 /* lottery_logo.png */; };
+		167AC17112D37027001615D6 /* lottery_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 167AC16F12D37027001615D6 /* lottery_logo@2x.png */; };
 		1689A01412C5152C00E194D1 /* circle_four.png in Resources */ = {isa = PBXBuildFile; fileRef = 1689A00C12C5152C00E194D1 /* circle_four.png */; };
 		1689A01512C5152C00E194D1 /* circle_four@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1689A00D12C5152C00E194D1 /* circle_four@2x.png */; };
 		1689A01612C5152C00E194D1 /* circle_six.png in Resources */ = {isa = PBXBuildFile; fileRef = 1689A00E12C5152C00E194D1 /* circle_six.png */; };
@@ -60,8 +62,6 @@
 		169CE75B12D25AFB00F467FC /* FileHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 169CE75A12D25AFB00F467FC /* FileHelpers.m */; };
 		169CE84612D289C900F467FC /* grey_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 169CE84012D289C900F467FC /* grey_button.png */; };
 		169CE84712D289C900F467FC /* grey_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 169CE84112D289C900F467FC /* grey_button@2x.png */; };
-		169CE84812D289C900F467FC /* lottery_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 169CE84212D289C900F467FC /* lottery_logo.png */; };
-		169CE84912D289C900F467FC /* lottery_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 169CE84312D289C900F467FC /* lottery_logo@2x.png */; };
 		169CE84A12D289C900F467FC /* riveralabs_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 169CE84412D289C900F467FC /* riveralabs_logo.png */; };
 		169CE84B12D289C900F467FC /* riveralabs_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 169CE84512D289C900F467FC /* riveralabs_logo@2x.png */; };
 		16D032B412CC0C0B00D29AA7 /* QuickPickTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D032B312CC0C0B00D29AA7 /* QuickPickTableCell.xib */; };
@@ -123,13 +123,15 @@
 		1662A3B112CE4F1D00273575 /* pegados@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pegados@2x.png"; sourceTree = "<group>"; };
 		1662A3B212CE4F1D00273575 /* pegatres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pegatres.png; sourceTree = "<group>"; };
 		1662A3B312CE4F1D00273575 /* pegatres@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pegatres@2x.png"; sourceTree = "<group>"; };
-		1662A3F012CE946C00273575 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		1662A3F112CE946C00273575 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		1673EAA112CA4690009B2255 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		1673EAA212CA4690009B2255 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		1673EAA412CA46A7009B2255 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		1673EB3C12CA6AED009B2255 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
 		1673EB3D12CA6AED009B2255 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
+		167AC16612D36EAE001615D6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		167AC16712D36EAE001615D6 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		167AC16E12D37027001615D6 /* lottery_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lottery_logo.png; sourceTree = "<group>"; };
+		167AC16F12D37027001615D6 /* lottery_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lottery_logo@2x.png"; sourceTree = "<group>"; };
 		1689A00C12C5152C00E194D1 /* circle_four.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_four.png; sourceTree = "<group>"; };
 		1689A00D12C5152C00E194D1 /* circle_four@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle_four@2x.png"; sourceTree = "<group>"; };
 		1689A00E12C5152C00E194D1 /* circle_six.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_six.png; sourceTree = "<group>"; };
@@ -158,8 +160,6 @@
 		169CE75A12D25AFB00F467FC /* FileHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelpers.m; sourceTree = "<group>"; };
 		169CE84012D289C900F467FC /* grey_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey_button.png; sourceTree = "<group>"; };
 		169CE84112D289C900F467FC /* grey_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey_button@2x.png"; sourceTree = "<group>"; };
-		169CE84212D289C900F467FC /* lottery_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lottery_logo.png; sourceTree = "<group>"; };
-		169CE84312D289C900F467FC /* lottery_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lottery_logo@2x.png"; sourceTree = "<group>"; };
 		169CE84412D289C900F467FC /* riveralabs_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = riveralabs_logo.png; sourceTree = "<group>"; };
 		169CE84512D289C900F467FC /* riveralabs_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "riveralabs_logo@2x.png"; sourceTree = "<group>"; };
 		16D032B312CC0C0B00D29AA7 /* QuickPickTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickPickTableCell.xib; sourceTree = "<group>"; };
@@ -254,14 +254,14 @@
 		1695FEDF12C3EFA100C8DE7D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				167AC16E12D37027001615D6 /* lottery_logo.png */,
+				167AC16F12D37027001615D6 /* lottery_logo@2x.png */,
+				167AC16612D36EAE001615D6 /* Icon.png */,
+				167AC16712D36EAE001615D6 /* Icon@2x.png */,
 				169CE84012D289C900F467FC /* grey_button.png */,
 				169CE84112D289C900F467FC /* grey_button@2x.png */,
-				169CE84212D289C900F467FC /* lottery_logo.png */,
-				169CE84312D289C900F467FC /* lottery_logo@2x.png */,
 				169CE84412D289C900F467FC /* riveralabs_logo.png */,
 				169CE84512D289C900F467FC /* riveralabs_logo@2x.png */,
-				1662A3F012CE946C00273575 /* Icon.png */,
-				1662A3F112CE946C00273575 /* Icon@2x.png */,
 				1662A3B012CE4F1D00273575 /* pegados.png */,
 				1662A3B112CE4F1D00273575 /* pegados@2x.png */,
 				1662A3B212CE4F1D00273575 /* pegatres.png */,
@@ -479,14 +479,14 @@
 				1662A3B512CE4F1D00273575 /* pegados@2x.png in Resources */,
 				1662A3B612CE4F1D00273575 /* pegatres.png in Resources */,
 				1662A3B712CE4F1D00273575 /* pegatres@2x.png in Resources */,
-				1662A3F212CE946C00273575 /* Icon.png in Resources */,
-				1662A3F312CE946C00273575 /* Icon@2x.png in Resources */,
 				169CE84612D289C900F467FC /* grey_button.png in Resources */,
 				169CE84712D289C900F467FC /* grey_button@2x.png in Resources */,
-				169CE84812D289C900F467FC /* lottery_logo.png in Resources */,
-				169CE84912D289C900F467FC /* lottery_logo@2x.png in Resources */,
 				169CE84A12D289C900F467FC /* riveralabs_logo.png in Resources */,
 				169CE84B12D289C900F467FC /* riveralabs_logo@2x.png in Resources */,
+				167AC16812D36EAE001615D6 /* Icon.png in Resources */,
+				167AC16912D36EAE001615D6 /* Icon@2x.png in Resources */,
+				167AC17012D37027001615D6 /* lottery_logo.png in Resources */,
+				167AC17112D37027001615D6 /* lottery_logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
