@@ -2,19 +2,17 @@
 //  LotterySix.m
 //  LotteryPR
 //
-//  Created by arn on 12/23/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/23/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 #import "LotterySix.h"
-
-#define NUMBER_RANGE 6
 
 @implementation LotterySix
 
 - (id)init {
 	if (self = [super init]) {	
-		self.winningNumbers = [self emptyNumbersWithMax:NUMBER_RANGE];
+		self.winningNumbers = [self emptyNumbersWithMax:LOTO_RANGE];
 	}
 	return self;
 }
@@ -26,9 +24,12 @@
 	if (self == nil) {
 		return nil;
 	}
-	self.winningNumbers = [NSArray arrayWithArray:[self winningNumbersFromString:numberString withRange:(NSInteger)NUMBER_RANGE]];
+	self.winningNumbers = [NSArray arrayWithArray:[self winningNumbersFromString:numberString withRange:(NSInteger)LOTO_RANGE]];
 	return self;
 }
+
+#pragma mark -
+#pragma mark Class Methods
 
 // Number String should be in the format XX-XX-XX-XX-XX-XX
 - (NSArray *)winningNumbersFromString:(NSString *)string withRange:(NSInteger)numRange {
@@ -46,10 +47,6 @@
 
 - (NSString *)numbersToString {
 	return [winningNumbers componentsJoinedByString:@"-"];
-}
-
-- (void)dealloc {
-    [super dealloc];
 }
 
 @end

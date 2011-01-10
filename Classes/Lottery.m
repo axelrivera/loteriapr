@@ -2,8 +2,8 @@
 //  Lottery.m
 //  LotteryPR
 //
-//  Created by arn on 12/23/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/23/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 #import "Lottery.h"
@@ -62,6 +62,15 @@
 	[encoder encodeObject:winningNumbers forKey:@"winningNumbers"];
 }
 
+- (void)dealloc {
+	[gameName release];
+	[drawDate release];
+	[winningNumbers release];
+    [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Class Methods
 
 - (NSMutableArray *)emptyNumbersWithMax:(int)max {
 	NSMutableArray *array = [NSMutableArray arrayWithCapacity:max];
@@ -107,13 +116,6 @@
 
 - (NSString *)numbersToString {
 	return [winningNumbers componentsJoinedByString:@""];
-}
-
-- (void)dealloc {
-	[gameName release];
-	[drawDate release];
-	[winningNumbers release];
-    [super dealloc];
 }
 
 @end

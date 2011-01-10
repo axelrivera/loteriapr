@@ -2,8 +2,8 @@
 //  PickSixViewController.h
 //  LotteryPR
 //
-//  Created by arn on 12/28/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/28/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 @class PickerNumbers;
@@ -46,18 +46,14 @@
 
 - (IBAction)shakePicker:(id)sender;
 
+- (UIPickerView *)createPicker;
+
 - (NSMutableArray *)lotteryArrayWithMin:(NSInteger)localMin max:(NSInteger)localMax;
 
 - (void)setupLottery;
-
-- (UIPickerView *)createPicker;
-
 - (void)showPicker:(UIView *)picker;
-
 - (void)showLabelView:(PickerNumbers *)label;
-
 - (void)resetCurrentPicker;
-
 - (void)setupNumbersLabelWithArray:(NSMutableArray *)components;
 
 @end

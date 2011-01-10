@@ -2,8 +2,8 @@
 //  LotteryViewController.h
 //  LotteryPR
 //
-//  Created by arn on 12/23/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/23/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 @class LinkViewController;
@@ -32,12 +32,10 @@
 
 - (UILabel *)numberLabel:(NSNumber *)num withPoint:(CGPoint)pt;
 
-- (void)addNumberLabelsToView:(UIView *)numView withNumbers:(NSArray *)numArray;
-
-- (void)showLoadingButtonItem;
-
-- (void)showRefreshButtonItem;
-
 - (NSString *)lotteryFilePath;
+
+- (void)addNumberLabelsToView:(UIView *)numView withNumbers:(NSArray *)numArray;
+- (void)showLoadingButtonItem;
+- (void)showRefreshButtonItem;
 
 @end

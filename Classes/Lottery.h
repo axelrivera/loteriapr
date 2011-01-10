@@ -2,8 +2,8 @@
 //  Lottery.h
 //  LotteryPR
 //
-//  Created by arn on 12/23/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/23/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 @interface Lottery : NSObject {
@@ -17,17 +17,12 @@
 @property (nonatomic, copy) NSArray *winningNumbers;
 
 - (id)initWithName:(NSString *)name;
-
 - (id)initWithName:(NSString *)name date:(NSString *)dateString;
-
 - (id)initWithName:(NSString *)name numbers:(NSString *)numberString date:(NSString *)dateString;
 
 - (NSMutableArray *)emptyNumbersWithMax:(int)max;
-
 - (NSDate *)toDateFromString:(NSString *)dateString;
-
 - (NSArray *)winningNumbersFromString:(NSString *)string withRange:(NSInteger)numRange;
-
 - (NSString *)numbersToString;
 
 @end

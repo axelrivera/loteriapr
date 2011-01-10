@@ -1,11 +1,9 @@
-/*
- *  FileHelpers.m
- *  Homepwner
- *
- *  Created by arn on 11/24/10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
- *
- */
+//
+//  FileHelpers.m
+//
+//  Created by Axel Rivera on 12/23/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
+//
 
 #include "FileHelpers.h"
 

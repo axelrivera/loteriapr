@@ -2,26 +2,13 @@
 //  AboutViewController.m
 //  LotteryPR
 //
-//  Created by arn on 12/23/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/23/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 #import "AboutViewController.h"
 
-
 @implementation AboutViewController
-
-
-- (IBAction)goToWebsite:(id)sender {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.riveralabs.com"]];
-}
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc. that aren't in use.
-}
 
 - (void)viewDidUnload {
     [super viewDidUnload];
@@ -29,10 +16,15 @@
     // e.g. self.myOutlet = nil;
 }
 
-
 - (void)dealloc {
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark Interface Builder Actions
+
+- (IBAction)goToWebsite:(id)sender {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.riveralabs.com"]];
+}
 
 @end

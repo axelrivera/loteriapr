@@ -2,8 +2,8 @@
 //  LinkViewController.h
 //  LotteryPR
 //
-//  Created by arn on 12/27/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/27/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 @class Lottery;
@@ -21,9 +21,7 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *refreshButton;
 
 - (void)setActiveLottery:(Lottery *)lottery;
-
 - (IBAction)reloadPage:(id)sender;
-
 - (IBAction)openActions:(id)sender;
 
 @end

@@ -2,8 +2,8 @@
 //  PickerNumbers.m
 //  LotteryPR
 //
-//  Created by arn on 12/30/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/30/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 #import "PickerNumbers.h"
@@ -21,14 +21,12 @@
     return self;
 }
 
-- (id)initWithSize:(NSInteger)size {
-	[super init];
-	
-	if (size == 6) {
+- (id)initWithSize:(NSInteger)size {	
+	if (size == LOTO_RANGE) {
 		numbersImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"picker_loto_circles.png"]];
-	} else if (size == 4) {
+	} else if (size == PEGA_CUATRO_RANGE) {
 		numbersImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"picker_pegacuatro_circles.png"]];
-	} else if (size == 3) {
+	} else if (size == PEGA_TRES_RANGE) {
 		numbersImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"picker_pegatres_circles.png"]];
 	} else {
 		numbersImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"picker_pegados_circles.png"]];
@@ -50,9 +48,14 @@
 	return self;
 }
 
-- (void)setupSubviewsWithArray:(NSMutableArray *)content {
-	
+- (void)dealloc {
+    [super dealloc];
+	[numbersImageView release];
+	[numbersLabelArray release];
 }
+
+#pragma mark -
+#pragma mark Class Methods
 
 - (UILabel *)numberLabel:(NSNumber *)num withPoint:(CGPoint)pt {
 	CGRect labelRect = CGRectMake(pt.x, pt.y, BALL_SIZE, BALL_SIZE);
@@ -84,12 +87,5 @@
 		[localView removeFromSuperview];
 	}
 }
-
-- (void)dealloc {
-    [super dealloc];
-	[numbersImageView release];
-	[numbersLabelArray release];
-}
-
 
 @end

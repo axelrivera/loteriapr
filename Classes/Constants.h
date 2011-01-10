@@ -2,13 +2,26 @@
 //  Constants.h
 //  LotteryPR
 //
-//  Created by arn on 12/23/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/23/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
+
+#define LOTO_RANGE 6
+#define PEGA_CUATRO_RANGE 4
+#define PEGA_TRES_RANGE 3
+#define PEGA_DOS_RANGE 2
+
+#define LOTO_MIN 1
+#define LOTO_MAX 46
+#define LOTTERY_MIN 0
+#define LOTTERY_MAX 9
+
+#define SHUFFLE_COUNT 10
 
 extern NSString * const xmlItem;
 extern NSString * const xmlTitleItem;
 extern NSString * const xmlDateItem;
+extern NSString * const xmlTitleDivider;
 
 extern NSString * const LotoTitle;
 extern NSString * const RevanchaTitle;

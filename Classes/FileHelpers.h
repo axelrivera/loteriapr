@@ -1,13 +1,9 @@
-/*
- *  FileHelpers.h
- *  Homepwner
- *
- *  Created by arn on 11/24/10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
- *
- */
-
-#import <UIKit/UIKit.h>
+//
+//  FileHelpers.h
+//
+//  Created by Axel Rivera on 12/23/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
+//
 
 NSString *pathInDocumentDirectory(NSString *fileName);
 

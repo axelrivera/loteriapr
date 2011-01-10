@@ -2,8 +2,8 @@
 //  NSMutableArray+Shuffle.m
 //  LotteryPR
 //
-//  Created by arn on 12/28/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 12/28/10.
+//  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 @implementation NSMutableArray (NSMutableArrayFunctions)
