@@ -2,11 +2,17 @@
 //  Lottery.m
 //  LotteryPR
 //
-//  Created by Axel Rivera on 12/23/10.
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 #import "Lottery.h"
+#import "NSMutableArray+Shuffle.h"
+
+@interface Lottery (Private)
+
++ (NSMutableArray *)lotteryArrayWithMin:(NSInteger)localMin max:(NSInteger)localMax;
+
+@end
 
 @implementation Lottery
 
@@ -15,9 +21,10 @@
 @synthesize winningNumbers;
 
 - (id)init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		self.gameName = @"";
 		self.drawDate = [NSDate	date];
+		playType = LotteryPlayTypeNone;
 	}
 	return self;
 }
@@ -41,17 +48,19 @@
 }
 
 - (id)initWithName:(NSString *)name numbers:(NSString *)numberString date:(NSString *)dateString {
-	if (self = [self init]) {
+	if ((self = [self init])) {
 		// Initialization Code
 	}
 	return self;
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-	if (self = [super init]) { // this needs to be [super initWithCoder:aDecoder] if the superclass implements NSCoding
+	if ((self = [super init])) { // this needs to be [super initWithCoder:aDecoder] if the superclass implements NSCoding
 		[self setGameName:[decoder decodeObjectForKey:@"gameName"]];
 		[self setDrawDate:[decoder decodeObjectForKey:@"drawDate"]];
-		[self setWinningNumbers:[decoder decodeObjectForKey:@"winningNumbers"]];	}
+		[self setWinningNumbers:[decoder decodeObjectForKey:@"winningNumbers"]];
+		playType = [decoder decodeIntForKey:@"playType"];
+	}
 	return self;
 }
 
@@ -60,6 +69,7 @@
 	[encoder encodeObject:gameName forKey:@"gameName"];
 	[encoder encodeObject:drawDate forKey:@"drawDate"];
 	[encoder encodeObject:winningNumbers forKey:@"winningNumbers"];
+	[encoder encodeInt:playType forKey:@"playType"];
 }
 
 - (void)dealloc {
@@ -70,7 +80,40 @@
 }
 
 #pragma mark -
-#pragma mark Class Methods
+#pragma mark Custom Class Methods
+
++ (NSMutableArray *)lotteryArrayWithMin:(NSInteger)localMin max:(NSInteger)localMax {
+	NSMutableArray *localArray = [[[NSMutableArray alloc] initWithCapacity:localMax] autorelease];
+	for (NSInteger i = localMin; i <= localMax; i++) {
+		[localArray addObject:[NSNumber numberWithInteger:i]]; 
+	}
+	return localArray;	
+}
+
++ (NSArray *)lotteryBucket {
+	return (NSArray *)[self lotteryArrayWithMin:LOTTERY_MIN max:LOTTERY_MAX];	
+}
+
++ (NSArray *)lotoBucket {
+	return (NSArray *)[self lotteryArrayWithMin:LOTO_MIN max:LOTO_MAX];	
+}
+
++ (NSString *)stringForLotteryType:(LotteryPlayType)type {
+	NSString *returnStr = nil;
+	if (type == LotteryPlayTypeExact) {
+			returnStr = @"Exacta";
+	} else if (type == LotteryPlayTypeCombined) {
+		returnStr = @"Combinada";
+	} else if (type == LotteryPlayTypeExactCombined) {
+		returnStr = @"Exacta/Combinada";
+	} else {
+		returnStr = @"";
+	}
+	return returnStr;
+}
+
+#pragma mark -
+#pragma mark Custom Methods
 
 - (NSMutableArray *)emptyNumbersWithMax:(int)max {
 	NSMutableArray *array = [NSMutableArray arrayWithCapacity:max];
@@ -116,6 +159,26 @@
 
 - (NSString *)numbersToString {
 	return [winningNumbers componentsJoinedByString:@""];
+}
+
+- (NSString *)lotteryTypeToString {
+	return [Lottery stringForLotteryType:playType];
+}
+
+- (void)setPlayType:(LotteryPlayType)type {
+	playType = type;
+}
+
+- (LotteryPlayType)playType {
+	return playType;
+}
+
+- (NSString *)description {
+	if (self.winningNumbers != nil) {
+		return [NSString stringWithFormat:@"Game Name: %@, Date: %@, Winning Numbers: %@",
+				self.gameName, self.drawDate, [self numbersToString]];
+	}
+	return [super description];
 }
 
 @end

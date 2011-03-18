@@ -25,6 +25,7 @@ NSString * const PegaDosKey = @"pegaDosKey";
 NSString * const PegaTresKey = @"pegaTresKey";
 NSString * const PegaCuatroKey = @"pegaCuatroKey";
 
+NSString * const DefaultRss = @"http://loteriaelectronicapr.com/rss/rss.aspx";
 NSString * const DefaultUrl = @"http://loteriaelectronicapr.com";
 NSString * const LotoUrl = @"http://loteriaelectronicapr.com/Content/NumerosPasados.aspx?gt=loto";
 NSString * const RevanchaUrl = @"http://loteriaelectronicapr.com/Content/NumerosPasados.aspx?gt=revancha";
