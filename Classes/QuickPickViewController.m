@@ -2,6 +2,7 @@
 //  QuickPickViewController.m
 //  LotteryPR
 //
+//  Created by Axel Rivera on 12/23/10.
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
@@ -71,7 +72,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 85.0;
+	return 90.0;
 }
 
 #pragma mark -

@@ -2,6 +2,7 @@
 //  LinkViewController.m
 //  LotteryPR
 //
+//  Created by Axel Rivera on 12/27/10.
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
@@ -111,6 +112,18 @@
 	webView.hidden = NO;
 	actionButton.enabled = YES;
 	refreshButton.enabled = YES;
+}
+
+- (void)webView:(UIWebView *)aView didFailLoadWithError:(NSError *)error {
+    NSString *errorString = [NSString stringWithFormat:@"No Internet Connection", 
+                             [error localizedDescription]]; 
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error"
+													message:errorString
+												   delegate:self
+										  cancelButtonTitle:@"OK"
+										  otherButtonTitles: nil];
+	[alert show];	
+	[alert release];	
 }
 
 #pragma mark -

@@ -2,16 +2,14 @@
 //  PickSixViewController.h
 //  LotteryPR
 //
+//  Created by Axel Rivera on 12/28/10.
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
-@class LotteryBallView;
-@class LotteryData;
+@class PickerNumbers;
 
-@interface PickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface PickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UIAccelerometerDelegate> {
 	NSString *lotteryName;
-	NSArray *numbersArray;
-	BOOL rememberNumbers;
 	
 	UIPickerView *sixPickerView;
 	UIPickerView *fourPickerView;
@@ -20,17 +18,19 @@
 	UIPickerView *currentPicker;
 	
 	UIButton *shakeButton;
+	UIImageView *numbersImageView;
 	
 	NSArray *lotoPickerArray;
 	NSArray *lotteryPickerArray;
 	
-	LotteryBallView *lotteryBallView;
-	LotteryData *lotteryData;
+	PickerNumbers *sixLabelView;
+	PickerNumbers *fourLabelView;
+	PickerNumbers *threeLabelView;
+	PickerNumbers *twoLabelView;
+	PickerNumbers *currentLabelView;
 }
 
 @property (nonatomic, copy) NSString *lotteryName;
-@property (nonatomic, copy) NSArray *numbersArray;
-@property (nonatomic) BOOL rememberNumbers;
 
 @property (nonatomic, retain) UIPickerView *sixPickerView;
 @property (nonatomic, retain) UIPickerView *fourPickerView;
@@ -39,6 +39,7 @@
 @property (nonatomic, retain) UIPickerView *currentPicker;
 
 @property (nonatomic, retain) IBOutlet UIButton *shakeButton;
+@property (nonatomic, retain) IBOutlet UIImageView *numbersImageView;
 
 @property (nonatomic, copy) NSArray *lotoPickerArray;
 @property (nonatomic, copy) NSArray *lotteryPickerArray;
@@ -50,11 +51,9 @@
 - (NSMutableArray *)lotteryArrayWithMin:(NSInteger)localMin max:(NSInteger)localMax;
 
 - (void)setupLottery;
-- (IBAction)addNumber:(id)sender;
 - (void)showPicker:(UIView *)picker;
+- (void)showLabelView:(PickerNumbers *)label;
 - (void)resetCurrentPicker;
-- (void)setupNumbersLabelWithArray:(NSArray *)array;
-- (void)showFreeAlert;
-- (void)showPremiumAlert;
+- (void)setupNumbersLabelWithArray:(NSMutableArray *)components;
 
 @end

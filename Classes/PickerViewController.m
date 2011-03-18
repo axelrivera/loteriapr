@@ -1,99 +1,60 @@
-//
+    //
 //  PickSixViewController.m
 //  LotteryPR
 //
+//  Created by Axel Rivera on 12/28/10.
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 #import "PickerViewController.h"
-#import "AddNumberViewController.h"
-#import "AboutViewController.h"
 #import "NSMutableArray+Shuffle.h"
-#import "LotteryBallView.h"
-#import "LotteryData.h"
-#import "InAppPurchaseObserver.h"
+#import "PickerNumbers.h"
 
 @implementation PickerViewController
 
 @synthesize lotteryName;
-@synthesize numbersArray;
-@synthesize currentPicker, sixPickerView, fourPickerView, threePickerView, twoPickerView;
+@synthesize sixPickerView;
+@synthesize fourPickerView;
+@synthesize threePickerView;
+@synthesize twoPickerView;
+@synthesize currentPicker;
 @synthesize shakeButton;
-@synthesize lotoPickerArray, lotteryPickerArray;
-@synthesize rememberNumbers;
+@synthesize numbersImageView;
+@synthesize lotoPickerArray;
+@synthesize lotteryPickerArray;
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
-	LotteryBallColorType colorType;
-	LotteryType lotteryType;
 	if ([lotteryName isEqualToString:LotoTitle]) {
 		self.title = LotoTitle;
 		[self showPicker:sixPickerView];
-		lotteryType = LotteryTypeSix;
-		colorType = LotteryBallColorMagenta;
+		[self showLabelView:sixLabelView];
 	} else if ([lotteryName isEqualToString:PegaCuatroTitle]) {
 		self.title = PegaCuatroTitle;
 		[self showPicker:fourPickerView];
-		lotteryType = LotteryTypeFour;
-		colorType = LotteryBallColorBlue;
+		[self showLabelView:fourLabelView];
 	} else if ([lotteryName isEqualToString:PegaTresTitle]) {
 		self.title = PegaTresTitle;
 		[self showPicker:threePickerView];
-		lotteryType = LotteryTypeThree;
-		colorType = LotteryBallColorRed;
+		[self showLabelView:threeLabelView];
 	} else {
 		self.title = PegaDosTitle;
 		[self showPicker:twoPickerView];
-		lotteryType = LotteryTypeTwo;
-		colorType = LotteryBallColorOrange;
-	}
-	
-	[lotteryBallView setLotteryType:lotteryType];
-	[lotteryBallView setBallColor:colorType];
-	
-	CGRect ballFrame = [lotteryBallView frame];
-	ballFrame.origin.x = ([[UIScreen mainScreen] bounds].size.width / 2.0) - (ballFrame.size.width / 2.0);
-	ballFrame.origin.y = (114.0 - LOTTERY_BALL_SIZE) / 2.0;
-	[lotteryBallView setFrame:ballFrame];
-	
-	self.navigationItem.rightBarButtonItem.enabled = NO;
-	
-	if (rememberNumbers) {
-		[self setupNumbersLabelWithArray:self.numbersArray];
-		for (NSInteger i = 0; i < [currentPicker numberOfComponents]; i++) {
-			NSInteger lotteryIndex;
-			lotteryIndex = [[self.numbersArray objectAtIndex:i] integerValue];
-			if ([self.numbersArray count] == 6) {
-				lotteryIndex--;
-			}
-			[currentPicker selectRow:lotteryIndex inComponent:i animated:NO];
-		}
-		self.rememberNumbers = NO;
-	} else {
-		self.numbersArray = [NSArray array];
-	}
+		[self showLabelView:twoLabelView];
+	}	
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 	currentPicker.hidden = YES;
+	currentLabelView.hidden = YES;
 	[self resetCurrentPicker];
+	[currentLabelView removeLabelsFromSuperview];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-	self.view.tag = 100;
-	
-	lotteryData = [LotteryData sharedLotteryData];
-	self.rememberNumbers = NO;
-		
-	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-																			   target:self
-																			   action:@selector(addNumber:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    [addButton release];
 	
 	UIImage *buttonImageNormal = [UIImage imageNamed:@"red_button.png"];
 	UIImage *stretchableButtonImageNormal = [buttonImageNormal stretchableImageWithLeftCapWidth:13 topCapHeight:0];
@@ -108,26 +69,49 @@
 	
 	[self setupLottery];
 	
-	lotteryBallView = [[LotteryBallView alloc] initWithType:LotteryTypeNone ballColor:LotteryBallColorWhite];
-	[self.view addSubview:lotteryBallView];
+	// The labels get hidden by default with init method
+	sixLabelView = [[PickerNumbers alloc] initWithSize:6];
+	[numbersImageView addSubview:sixLabelView];
+	
+	fourLabelView = [[PickerNumbers alloc] initWithSize:4];
+	[numbersImageView addSubview:fourLabelView];
+	
+	threeLabelView = [[PickerNumbers alloc] initWithSize:3];
+	[numbersImageView addSubview:threeLabelView];
+	
+	twoLabelView = [[PickerNumbers alloc] initWithSize:2];
+	[numbersImageView addSubview:twoLabelView];
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-	self.sixPickerView = nil;
-	self.fourPickerView = nil;
-	self.threePickerView = nil;
-	self.twoPickerView = nil;
+	[sixPickerView release];
+	sixPickerView = nil;
+	[fourPickerView release];
+	fourPickerView = nil;
+	[threePickerView release];
+	threePickerView = nil;
+	[twoPickerView release];
+	twoPickerView = nil;
 	
-	self.shakeButton = nil;
+	shakeButton = nil;
+	numbersImageView = nil;
 	
 	self.lotoPickerArray = nil;
 	self.lotteryPickerArray = nil;
-	[lotteryBallView release];
-	lotteryBallView = nil;
+	
+	[sixLabelView release];
+	sixLabelView = nil;
+	[fourLabelView release];
+	fourLabelView = nil;
+	[threeLabelView release];
+	threeLabelView = nil;
+	[twoLabelView release];
+	twoLabelView = nil;
 }
+
 
 - (void)dealloc {
     [super dealloc];
@@ -137,10 +121,13 @@
 	[threePickerView release];
 	[twoPickerView release];
 	[shakeButton release];
+	[numbersImageView release];
 	[lotoPickerArray release];
 	[lotteryPickerArray release];
-	[lotteryBallView release];
-	[numbersArray release];
+	[sixLabelView release];
+	[fourLabelView release];
+	[threeLabelView release];
+	[twoLabelView release];
 }
 
 #pragma mark -
@@ -191,30 +178,6 @@
 #pragma mark -
 #pragma mark Action Methods
 
-- (IBAction)addNumber:(id)sender {
-	if (![lotteryData canAddNumbers]) {
-		if ([[InAppPurchaseObserver sharedInAppPurchase] isPremium]) {
-			[self showPremiumAlert];
-		} else {
-			[self showFreeAlert];
-		}
-		return;
-	}
-	
-	self.rememberNumbers = YES;
-	AddNumberViewController *controller = [[AddNumberViewController alloc] initWithNibName:@"AddNumberViewController"
-																					bundle:nil];	
-	[controller setCurrentGame:lotteryName];
-	[controller setCurrentPickerComponents:self.numbersArray];
-	[controller setPickerViewController:self];
-	
-	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	[controller release];
-	
-	[self presentModalViewController:navController animated:YES];
-	[navController release];
-}
-
 - (IBAction)shakePicker:(id)sender {
 	NSMutableArray *numbersLabelArray = [[NSMutableArray alloc] init];
 	
@@ -223,12 +186,10 @@
 		NSMutableArray *lotoArray = [[self lotteryArrayWithMin:LOTO_MIN max:LOTO_MAX] retain];
 		
 		[lotoArray shuffleWithCount:SHUFFLE_COUNT];
-		
-		NSInteger lotoIndex;
+				
 		for (NSInteger i = 0; i < [currentPicker numberOfComponents]; i++) {
 			// Substract 1 to the row because Loto starts at 1 instead of 0
-			lotoIndex = [[lotoArray objectAtIndex:i] integerValue];
-			[currentPicker selectRow:lotoIndex - 1 inComponent:i animated:YES];
+			[currentPicker selectRow:[[lotoArray objectAtIndex:i] integerValue] - 1 inComponent:i animated:YES];
 			[numbersLabelArray addObject:[lotoArray objectAtIndex:i]];
 		}
 		
@@ -243,43 +204,25 @@
 			[lotteryArray release];
 		}
 	}
-	[self performSelector:@selector(setupNumbersLabelWithArray:) withObject:numbersLabelArray afterDelay:0.5];
-	self.numbersArray = numbersLabelArray;
+	[self performSelector:@selector(setupNumbersLabelWithArray:) withObject:numbersLabelArray afterDelay:1];
+	//[self setupNumbersLabelWithArray:numbersLabelArray];
 	[numbersLabelArray release];
 }
 
 #pragma mark -
 #pragma mark Class Methods
 
-- (void)setupNumbersLabelWithArray:(NSArray *)array {
-	[lotteryBallView setBallViewWithNumbers:array];
-	self.navigationItem.rightBarButtonItem.enabled = YES;
+- (void)showLabelView:(PickerNumbers *)label {
+	// hide the current picker and show the new one
+	if (currentLabelView) {
+		currentLabelView.hidden = YES;
+	}
+	label.hidden = NO;
+	currentLabelView = label;	// remember the current picker so we can remove it later when another one is chosen
 }
 
-- (void)showFreeAlert {
-	NSString *messageString = [NSString stringWithFormat:@"La versión Gratis de Loteria Puerto Rico te permite"
-							   " guardar un máximo de %d números. ¿Deseas comprar la versión Premium?", MAX_FREE_NUMBERS];
-	
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Loteria Puerto Rico"
-													message:messageString
-												   delegate:self
-										  cancelButtonTitle:@"Cancelar"
-										  otherButtonTitles:@"OK", nil];
-	[alert show];
-	[alert release];
-}
-
-- (void)showPremiumAlert {
-	NSString *messageString = [NSString stringWithFormat:@"La versión Premium de Loteria Puerto Rico te permite"
-							   " guardar un máximo de %d números.", MAX_PREMIUM_NUMBERS];
-	
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Loteria Puerto Rico"
-													message:messageString
-												   delegate:self
-										  cancelButtonTitle:@"Cancelar"
-										  otherButtonTitles:nil];
-	[alert show];
-	[alert release];
+- (void)setupNumbersLabelWithArray:(NSMutableArray *)components {
+	[currentLabelView addNumberLabelsWithNumbers:components];
 }
 
 #pragma mark Lottery Methods
@@ -312,8 +255,7 @@
 - (NSMutableArray *)lotteryArrayWithMin:(NSInteger)localMin max:(NSInteger)localMax {
 	NSMutableArray *localArray = [[[NSMutableArray alloc] initWithCapacity:localMax] autorelease];
 	for (NSInteger i = localMin; i <= localMax; i++) {
-		NSNumber *tmpNumber = [[[NSNumber alloc] initWithInteger:i] autorelease];
-		[localArray addObject:tmpNumber]; 
+		[localArray addObject:[NSNumber numberWithInteger:i]]; 
 	}
 	return localArray;	
 }
@@ -326,7 +268,6 @@
 		currentPicker.hidden = YES;
 	}
 	picker.hidden = NO;
-	
 	currentPicker = picker;	// remember the current picker so we can remove it later when another one is chosen
 }
 
@@ -359,7 +300,6 @@
 	localPickerView.frame = [self pickerFrameWithSize:pickerSize];
 	localPickerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	localPickerView.showsSelectionIndicator = YES;	// note this is default to NO
-	localPickerView.userInteractionEnabled = NO;
 	
 	// this view controller is the data source and delegate
 	localPickerView.delegate = self;
@@ -368,18 +308,6 @@
 	// add this picker to our view controller, initially hidden
 	localPickerView.hidden = YES;
 	return localPickerView;
-}
-
-#pragma mark UIAlertView Delegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	if ([@"OK" isEqualToString:[alertView buttonTitleAtIndex:buttonIndex]]) {
-		self.rememberNumbers = YES;
-		AboutViewController *controller = [[AboutViewController alloc] initWithNibName:@"AboutViewController"
-																				bundle:nil];
-		[self presentModalViewController:controller animated:YES];
-		[controller release];
-	}
 }
 
 @end

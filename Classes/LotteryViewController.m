@@ -2,28 +2,25 @@
 //  LotteryViewController.m
 //  LotteryPR
 //
+//  Created by Axel Rivera on 12/23/10.
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
 #import "LotteryViewController.h"
 #import "LinkViewController.h"
-#import "NumbersViewController.h"
-#import "AboutViewController.h"
-#import "LotteryData.h"
 #import "Lottery.h"
 #import "LotteryTwo.h"
 #import "LotteryThree.h"
 #import "LotteryFour.h"
 #import "LotterySix.h"
 #import "FileHelpers.h"
-#import "LotteryBallView.h"
-#import "LotteryCell.h"
-#import "Reachability.h"
 
-BOOL validRSS;
+#define BALL_SIZE 35.0
+#define BALL_OFFSET 5.0
 
 @implementation LotteryViewController
 
+@synthesize nibLoadedCell;
 @synthesize lotteryNumbers;
 
 - (void)viewDidLoad {
@@ -35,10 +32,8 @@ BOOL validRSS;
 	self.navigationItem.backBarButtonItem = barButtonItem;
 	[barButtonItem release];
 	
-	[self showInfoButtonItem];
 	[self showRefreshButtonItem];
-	[self setLotteryNumbers:[NSMutableDictionary dictionaryWithDictionary:[[LotteryData sharedLotteryData] latestNumbers]]];
-	[self loadNumbers];
+	[self loadNumbers:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,11 +41,13 @@ BOOL validRSS;
 }
 
 - (void)viewDidUnload {
+	nibLoadedCell = nil;
 	lotteryNumbers = nil;
 	[super viewDidUnload];
 }
 
 - (void)dealloc {
+	[nibLoadedCell release];
 	[lotteryNumbers release];
     [super dealloc];
 }
@@ -58,31 +55,14 @@ BOOL validRSS;
 #pragma mark -
 #pragma mark Action Methods
 
-- (void)loadNumbers {
-	validRSS = NO;
-	BOOL networkAvailable = YES;
-	Reachability *reach = [[Reachability reachabilityForInternetConnection] retain];	
-    NetworkStatus netStatus = [reach currentReachabilityStatus];    
-    if (netStatus == NotReachable) {        
-		networkAvailable = NO;        
-    }
-	[reach release];
-	if (!networkAvailable) {
-		NSString *errorString = [NSString stringWithFormat:@"No Internet Connection Available"]; 
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error"
-														message:errorString
-													   delegate:self
-											  cancelButtonTitle:@"OK"
-											  otherButtonTitles: nil];
-		[alert show];	
-		[alert release];
-
-		return;
+- (IBAction)loadNumbers:(id)sender {
+	if (lotteryNumbers == nil) {
+		self.lotteryNumbers = [NSMutableDictionary dictionaryWithCapacity:5];
 	}
 	
 	[self showLoadingButtonItem];
 	// Construct the web service URL
-	NSURL *url = [NSURL URLWithString:DefaultRss];
+	NSURL *url = [NSURL URLWithString:@"http://loteriaelectronicapr.com/rss/rss.aspx"];
 	
 	// Create a request object with that URL								  
 	NSURLRequest *request = [NSURLRequest requestWithURL:url 
@@ -105,15 +85,30 @@ BOOL validRSS;
     xmlData = [[NSMutableData alloc] init]; 
 }
 
-- (void)loadAbout {
-	AboutViewController *controller = [[AboutViewController alloc] initWithNibName:@"AboutViewController"
-																					 bundle:nil];
-	[self presentModalViewController:controller animated:YES];
-	[controller release];
-}
-
 #pragma mark -
 #pragma mark Class Methods
+
+- (UILabel *)numberLabel:(NSNumber *)num withPoint:(CGPoint)pt {
+	CGRect labelRect = CGRectMake(pt.x, pt.y, 35.0, 35.0);
+	UILabel *label = [[[UILabel alloc] initWithFrame:labelRect] autorelease];
+	label.textAlignment =  UITextAlignmentCenter;
+	label.textColor = [UIColor blackColor];
+	label.backgroundColor = [UIColor clearColor];
+	label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20.0];
+	label.text = [NSString stringWithFormat:@"%d", [num intValue]];
+	return label;
+}
+
+- (void)addNumberLabelsToView:(UIView *)numView withNumbers:(NSArray *)numArray {
+	int positionY = 0.0;
+	int positionX = 0.0;
+	for (int i = 0; i < [numArray count]; i++) {
+		if (i > 0) {
+			positionX = positionX + BALL_OFFSET + BALL_SIZE;
+		}
+		[numView addSubview:[self numberLabel:[numArray objectAtIndex:i] withPoint:CGPointMake(positionX, positionY)]];
+	}
+}
 
 - (void)showLoadingButtonItem {
 	// initing the loading view
@@ -137,20 +132,14 @@ BOOL validRSS;
 - (void)showRefreshButtonItem {
 	UIBarButtonItem *reloadButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
 																					  target:self
-																					  action:@selector(loadNumbers)];
+																					  action:@selector(loadNumbers:)];
 	
 	self.navigationItem.rightBarButtonItem = reloadButtonItem;
 	[reloadButtonItem release];
 }
 
-- (void)showInfoButtonItem {
-	UIBarButtonItem *infoButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info.png"]
-																		style:UIBarButtonItemStyleBordered
-																	   target:self
-																	   action:@selector(loadAbout)];
-	
-	self.navigationItem.leftBarButtonItem = infoButtonItem;
-	[infoButtonItem release];
+- (NSString *)lotteryFilePath {
+	return pathInDocumentDirectory(@"Lottery.data");
 }
 
 #pragma mark -
@@ -160,14 +149,48 @@ BOOL validRSS;
     [xmlData appendData:data]; 
 } 
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection { 
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData]; 
-	[parser setDelegate:self];
-	[parser parse];
+    [parser setDelegate:self]; 
+    [parser parse]; 
+    [parser release];
 	
-	[parser release];
+	if ([lotteryNumbers objectForKey:LotoKey] == nil) {
+		LotterySix *loto = [[LotterySix alloc] initWithName:LotoTitle];
+		[lotteryNumbers setObject:loto forKey:LotoKey];
+		[loto release];
+		loto = nil;
+	}
 	
-	[[LotteryData sharedLotteryData] updateLatestNumbersWithDictionary:lotteryNumbers];
+	if ([lotteryNumbers objectForKey:RevanchaKey] == nil) {
+		LotterySix *revancha = [[LotterySix alloc] initWithName:RevanchaTitle];
+		[lotteryNumbers setObject:revancha forKey:RevanchaKey];
+		[revancha release];
+		revancha = nil;
+	}
+	
+	if ([lotteryNumbers objectForKey:PegaCuatroKey] == nil) {
+		LotteryFour *pegaCuatro = [[LotteryFour alloc] initWithName:PegaCuatroTitle];
+		[lotteryNumbers setObject:pegaCuatro forKey:PegaCuatroKey];
+		[pegaCuatro release];
+		pegaCuatro = nil;
+	}
+	
+	if ([lotteryNumbers objectForKey:PegaTresKey] == nil) {
+		LotteryThree *pegaTres = [[LotteryThree alloc] initWithName:PegaTresTitle];
+		[lotteryNumbers setObject:pegaTres forKey:PegaTresKey];
+		[pegaTres release];
+		pegaTres = nil;
+	}
+	
+	if ([lotteryNumbers objectForKey:PegaDosKey] == nil) {
+		LotteryTwo *pegaDos = [[LotteryTwo alloc] initWithName:PegaDosTitle];
+		[lotteryNumbers setObject:pegaDos forKey:PegaDosKey];
+		[pegaDos release];
+		pegaDos = nil;
+	}
+		
+	[NSKeyedArchiver archiveRootObject:lotteryNumbers toFile:[self lotteryFilePath]];
 	[[self tableView] reloadData];
 	[self showRefreshButtonItem];
 }
@@ -176,15 +199,7 @@ BOOL validRSS;
 didStartElement:(NSString *)elementName 
   namespaceURI:(NSString *)namespaceURI 
  qualifiedName:(NSString *)qName 
-    attributes:(NSDictionary *)attributeDict {
-	if ([elementName isEqualToString:@"rss"]) {
-		validRSS = YES;
-	}
-	
-	if (!validRSS) {
-		[parser abortParsing];
-	}
-	
+    attributes:(NSDictionary *)attributeDict { 
 	if([elementName isEqual:xmlItem]) {
 		waitingForItemTitle = YES;
 		waitingForItemDate = YES;
@@ -264,16 +279,14 @@ didStartElement:(NSString *)elementName
 		waitingForItemTitle = NO;
 		waitingForItemDate = NO;
 	}	
-}
-
-
+} 
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error { 
     [connectionInProgress release]; 
     connectionInProgress = nil; 
     [xmlData release]; 
     xmlData = nil; 
-    NSString *errorString = [NSString stringWithFormat:@"No Internet Connection Available", 
+    NSString *errorString = [NSString stringWithFormat:@"No Internet Connection", 
                              [error localizedDescription]]; 
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error"
 													message:errorString
@@ -284,19 +297,10 @@ didStartElement:(NSString *)elementName
 	[alert release];
 	
 	[self showRefreshButtonItem];
+	
+	self.lotteryNumbers = [NSKeyedUnarchiver unarchiveObjectWithFile:[self lotteryFilePath]];
 	[[self tableView] reloadData];
-}
-
-- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSString *errorString = [NSString stringWithFormat:@"La información no esta disponible en la página web de la Loteria Electrónica"]; 
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-													message:errorString
-												   delegate:self
-										  cancelButtonTitle:@"OK"
-										  otherButtonTitles: nil];
-	[alert show];	
-	[alert release];
-}
+}    
 
 #pragma mark UITableView Data Source
 
@@ -308,29 +312,77 @@ didStartElement:(NSString *)elementName
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	LotteryCell *cell = (LotteryCell *)[tableView dequeueReusableCellWithIdentifier:@"LotteryCell"];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 	if (cell == nil) {
-		cell = [[[LotteryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LotteryCell"] autorelease];
+		[[NSBundle mainBundle] loadNibNamed:@"LotteryTableCell" owner:self options:NULL];
+		cell = nibLoadedCell;
+	} else {
+		UIView *viewToClean = nil;
+		viewToClean = [cell.contentView viewWithTag:2];
+		for (UIView *localView in viewToClean.subviews) {
+			[localView removeFromSuperview];
+		}
 	}
+	
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"es_US"];
+	
+	[formatter setLocale: usLocale];
+	[usLocale release];
+	
+	//[formatter setTimeZone:[NSTimeZone systemTimeZone]];
+	// The original date string was in GMT
+	[formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+	[formatter setDateFormat:@"EEE, dd MMM yyyy"];
+	
+	UIImageView *logoView = (UIImageView *)[cell viewWithTag:1];
+	UIImageView *numbersView = (UIImageView *)[cell viewWithTag:2];
+	UILabel *dateLabel = (UILabel *)[cell viewWithTag:3];
 	
 	if (indexPath.row == 0) {
+		[logoView setImage:[UIImage imageNamed:@"loto.png"]];
+		[numbersView setImage:[UIImage imageNamed:@"circle_six.png"]];
+		
 		LotterySix *loto = [lotteryNumbers objectForKey:LotoKey];
-		[cell setLoto:loto];
+		dateLabel.text = [formatter stringFromDate:loto.drawDate];
+				
+		[self addNumberLabelsToView:numbersView withNumbers:[loto winningNumbers]];
 	} else if (indexPath.row == 1) {
+		[logoView setImage:[UIImage imageNamed:@"revancha.png"]];
+		[numbersView setImage:[UIImage imageNamed:@"circle_six.png"]];
+		
 		LotterySix *revancha = [lotteryNumbers objectForKey:RevanchaKey];
-		[cell setRevancha:revancha];
+		dateLabel.text = [formatter stringFromDate:revancha.drawDate];
+		
+		[self addNumberLabelsToView:numbersView withNumbers:[revancha winningNumbers]];
 	} else if (indexPath.row == 2) {
+		[logoView setImage:[UIImage imageNamed:@"pegacuatro.png"]];
+		[numbersView setImage:[UIImage imageNamed:@"circle_four.png"]];
+		
 		LotteryFour *pegaCuatro = [lotteryNumbers objectForKey:PegaCuatroKey];
-		[cell setPegaCuatro:pegaCuatro];
+		dateLabel.text = [formatter stringFromDate:pegaCuatro.drawDate];
+		
+		[self addNumberLabelsToView:numbersView withNumbers:[pegaCuatro winningNumbers]];
 	} else if (indexPath.row == 3) {
+		[logoView setImage:[UIImage imageNamed:@"pegatres.png"]];
+		[numbersView setImage:[UIImage imageNamed:@"circle_three.png"]];
+		
 		LotteryThree *pegaTres = [lotteryNumbers objectForKey:PegaTresKey];
-		[cell setPegaTres:pegaTres];
+		dateLabel.text = [formatter stringFromDate:pegaTres.drawDate];
+		
+		[self addNumberLabelsToView:numbersView withNumbers:[pegaTres winningNumbers]];
 	} else if (indexPath.row == 4) {
+		[logoView setImage:[UIImage imageNamed:@"pegados.png"]];
+		[numbersView setImage:[UIImage imageNamed:@"circle_two.png"]];
+		
 		LotteryTwo *pegaDos = [lotteryNumbers objectForKey:PegaDosKey];
-		[cell setPegaDos:pegaDos];
+		dateLabel.text = [formatter stringFromDate:pegaDos.drawDate];
+		
+		[self addNumberLabelsToView:numbersView withNumbers:[pegaDos winningNumbers]];
 	}
 	
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	[formatter release];
+	
     return cell;
 }
 

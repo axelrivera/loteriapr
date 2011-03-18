@@ -6,9 +6,6 @@
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
-#define LOTTERY_BALL_SIZE 35.0
-#define LOTTERY_BALL_OFFSET 7.0
-
 #define LOTO_RANGE 6
 #define PEGA_CUATRO_RANGE 4
 #define PEGA_TRES_RANGE 3
@@ -20,9 +17,6 @@
 #define LOTTERY_MAX 9
 
 #define SHUFFLE_COUNT 10
-
-#define MAX_FREE_NUMBERS 4
-#define MAX_PREMIUM_NUMBERS 400
 
 extern NSString * const xmlItem;
 extern NSString * const xmlTitleItem;
@@ -41,7 +35,6 @@ extern NSString * const PegaDosKey;
 extern NSString * const PegaTresKey;
 extern NSString * const PegaCuatroKey;
 
-extern NSString * const DefaultRss;
 extern NSString * const DefaultUrl;
 extern NSString * const LotoUrl;
 extern NSString * const RevanchaUrl;

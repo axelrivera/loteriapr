@@ -2,6 +2,7 @@
 //  LinkViewController.h
 //  LotteryPR
 //
+//  Created by Axel Rivera on 12/27/10.
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 

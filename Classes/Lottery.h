@@ -2,27 +2,19 @@
 //  Lottery.h
 //  LotteryPR
 //
+//  Created by Axel Rivera on 12/23/10.
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
-typedef enum { LotteryPlayTypeNone, LotteryPlayTypeExact, LotteryPlayTypeCombined, LotteryPlayTypeExactCombined } LotteryPlayType;
-
-@interface Lottery : NSObject <NSCoding> {
+@interface Lottery : NSObject {
 	NSString *gameName;
 	NSDate *drawDate;
 	NSArray *winningNumbers;
-	LotteryPlayType playType;
 }
 
 @property (nonatomic, copy) NSString *gameName;
 @property (nonatomic, copy) NSDate *drawDate;
 @property (nonatomic, copy) NSArray *winningNumbers;
-
-// Class Methods
-
-+ (NSArray *)lotteryBucket;
-+ (NSArray *)lotoBucket;
-+ (NSString *)stringForLotteryType:(LotteryPlayType)type;
 
 - (id)initWithName:(NSString *)name;
 - (id)initWithName:(NSString *)name date:(NSString *)dateString;
@@ -32,8 +24,5 @@ typedef enum { LotteryPlayTypeNone, LotteryPlayTypeExact, LotteryPlayTypeCombine
 - (NSDate *)toDateFromString:(NSString *)dateString;
 - (NSArray *)winningNumbersFromString:(NSString *)string withRange:(NSInteger)numRange;
 - (NSString *)numbersToString;
-- (NSString *)lotteryTypeToString;
-- (void)setPlayType:(LotteryPlayType)type;
-- (LotteryPlayType)playType;
 
 @end
