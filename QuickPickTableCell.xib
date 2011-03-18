@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">10H574</string>
+		<string key="IBDocument.SystemVersion">10J567</string>
 		<string key="IBDocument.InterfaceBuilderVersion">823</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.HIToolboxVersion">462.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">132</string>
@@ -50,7 +50,7 @@
 							<object class="IBUIImageView" id="1030774072">
 								<reference key="NSNextResponder" ref="253852501"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 20}, {50, 50}}</string>
+								<string key="NSFrame">{{20, 17}, {50, 50}}</string>
 								<reference key="NSSuperview" ref="253852501"/>
 								<int key="IBUITag">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -59,7 +59,7 @@
 							<object class="IBUILabel" id="1034918059">
 								<reference key="NSNextResponder" ref="253852501"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{90, 30}, {190, 29}}</string>
+								<string key="NSFrame">{{90, 27.5}, {190, 29}}</string>
 								<reference key="NSSuperview" ref="253852501"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -85,7 +85,7 @@
 								<float key="IBUIMinimumFontSize">10</float>
 							</object>
 						</object>
-						<string key="NSFrameSize">{300, 90}</string>
+						<string key="NSFrameSize">{300, 85}</string>
 						<reference key="NSSuperview" ref="318628770"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -98,7 +98,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 90}</string>
+				<string key="NSFrameSize">{320, 85}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
@@ -182,7 +182,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>QuickPickViewController</string>
 					<string>UIResponder</string>
-					<string>{{366, 397}, {320, 90}}</string>
+					<string>{{366, 402}, {320, 85}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">

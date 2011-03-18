@@ -6,4 +6,6 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 	#import "Constants.h"
+	#import "LotteryBall.h"
+	#import "FileHelpers.h"
 #endif
