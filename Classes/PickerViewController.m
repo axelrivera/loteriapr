@@ -257,8 +257,9 @@
 }
 
 - (void)showFreeAlert {
-	NSString *messageString = [NSString stringWithFormat:@"La versión Gratis de Loteria Puerto Rico te permite"
-							   " guardar un máximo de %d números. ¿Deseas comprar la versión Premium?", MAX_FREE_NUMBERS];
+	NSString *messageString = [NSString stringWithFormat:@"La versión Gratis de Loteria Puerto Rico te permite "
+							   "guardar un máximo de %d números. ¿Deseas comprar la versión Premium para "
+							   "poder guardar más números?", MAX_FREE_NUMBERS];
 	
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Loteria Puerto Rico"
 													message:messageString

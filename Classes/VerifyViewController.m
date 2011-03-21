@@ -31,7 +31,7 @@
 	segmentedControl.momentary = YES;
 	
 	NSInteger itemCount = [segmentedControlItems count];
-	CGFloat segmentedWidth = round(([UIScreen mainScreen].bounds.size.width - 40.0) / itemCount);
+	CGFloat segmentedWidth = round(([UIScreen mainScreen].bounds.size.width - 20.0) / itemCount);
 	
 	for (NSInteger i = 0; i < itemCount; i++) {
 		[segmentedControl setWidth:segmentedWidth forSegmentAtIndex:i];

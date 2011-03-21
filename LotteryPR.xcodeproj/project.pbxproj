@@ -277,8 +277,8 @@
 		16FD674812C8E1EC0082FD30 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
 		16FD674912C8E1EC0082FD30 /* LinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkViewController.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* LotteryPRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryPRAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* LotteryPRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryPRAppDelegate.m; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* LotteryPRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LotteryPRAppDelegate.h; path = Classes/LotteryPRAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* LotteryPRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LotteryPRAppDelegate.m; path = Classes/LotteryPRAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Loteria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loteria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -311,8 +311,6 @@
 				167AC1B312D37B82001615D6 /* View Controllers */,
 				167AC1B212D37AA0001615D6 /* Models + Data */,
 				167AC18C12D37A17001615D6 /* Helpers */,
-				1D3623240D0F684500981E51 /* LotteryPRAppDelegate.h */,
-				1D3623250D0F684500981E51 /* LotteryPRAppDelegate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -507,6 +505,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1D3623240D0F684500981E51 /* LotteryPRAppDelegate.h */,
+				1D3623250D0F684500981E51 /* LotteryPRAppDelegate.m */,
 				1695FE0A12C37AE200C8DE7D /* Constants.h */,
 				1695FE0B12C37AE200C8DE7D /* Constants.m */,
 				32CA4F630368D1EE00C91783 /* LotteryPR_Prefix.pch */,
@@ -775,6 +775,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LotteryPR_Prefix.pch;
 				INFOPLIST_FILE = "LotteryPR-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Loteria;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -807,6 +808,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LotteryPR_Prefix.pch;
 				INFOPLIST_FILE = "LotteryPR-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Loteria;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -823,6 +825,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LotteryPR_Prefix.pch;
 				INFOPLIST_FILE = "LotteryPR-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Loteria;
 			};
 			name = Debug;
@@ -836,6 +839,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LotteryPR_Prefix.pch;
 				INFOPLIST_FILE = "LotteryPR-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Loteria;
 				VALIDATE_PRODUCT = YES;
 			};
