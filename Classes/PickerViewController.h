@@ -8,53 +8,31 @@
 @class LotteryBallView;
 @class LotteryData;
 
-@interface PickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
-	NSString *lotteryName;
-	NSArray *numbersArray;
-	BOOL rememberNumbers;
-	
-	UIPickerView *sixPickerView;
-	UIPickerView *fourPickerView;
-	UIPickerView *threePickerView;
-	UIPickerView *twoPickerView;
-	UIPickerView *currentPicker;
-	
-	UIButton *shakeButton;
-	
-	NSArray *lotoPickerArray;
-	NSArray *lotteryPickerArray;
-	
-	LotteryBallView *lotteryBallView;
-	LotteryData *lotteryData;
+typedef enum
+{
+    PickerViewTypeSix,
+    PickerViewTypeFour,
+    PickerViewTypeThree,
+    PickerViewTypeTwo
+} PickerViewType;
+
+@interface PickerViewController : UIViewController {
+	LotteryBallView *lotteryBallView_;
+	LotteryData *lotteryData_;
 }
 
+@property (nonatomic, retain) IBOutlet UIPickerView *pickerView;
+@property (nonatomic, retain) IBOutlet UIButton *shakeButton;
 @property (nonatomic, copy) NSString *lotteryName;
 @property (nonatomic, copy) NSArray *numbersArray;
-@property (nonatomic) BOOL rememberNumbers;
+@property (nonatomic, assign) BOOL rememberNumbers;
+@property (nonatomic, assign) PickerViewType pickerType;
 
-@property (nonatomic, retain) UIPickerView *sixPickerView;
-@property (nonatomic, retain) UIPickerView *fourPickerView;
-@property (nonatomic, retain) UIPickerView *threePickerView;
-@property (nonatomic, retain) UIPickerView *twoPickerView;
-@property (nonatomic, retain) UIPickerView *currentPicker;
+@property (nonatomic, copy) NSArray *pickerDataSource;
 
-@property (nonatomic, retain) IBOutlet UIButton *shakeButton;
-
-@property (nonatomic, copy) NSArray *lotoPickerArray;
-@property (nonatomic, copy) NSArray *lotteryPickerArray;
+- (id)initWithPickerType:(PickerViewType)type;
 
 - (IBAction)shakePicker:(id)sender;
-
-- (UIPickerView *)createPicker;
-
-- (NSMutableArray *)lotteryArrayWithMin:(NSInteger)localMin max:(NSInteger)localMax;
-
-- (void)setupLottery;
 - (IBAction)addNumber:(id)sender;
-- (void)showPicker:(UIView *)picker;
-- (void)resetCurrentPicker;
-- (void)setupNumbersLabelWithArray:(NSArray *)array;
-- (void)showFreeAlert;
-- (void)showPremiumAlert;
 
 @end

@@ -9,8 +9,6 @@
 
 @interface QuickPickViewController : UITableViewController {
 	NSArray *dataSource;
-	PickerViewController *pickerViewController;
-	
 	UITableViewCell *nibLoadedCell;
 }
 

@@ -79,22 +79,27 @@
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString *lotteryName = @"";
+    PickerViewType pickerType;
 	if (indexPath.row == 0) {
 		lotteryName = LotoTitle;
+        pickerType = PickerViewTypeSix;
 	} else if (indexPath.row == 1) {
 		lotteryName = PegaCuatroTitle;
+        pickerType = PickerViewTypeFour;
 	} else if (indexPath.row == 2) {
 		lotteryName = PegaTresTitle;
+        pickerType = PickerViewTypeThree;
 	} else {
 		lotteryName = PegaDosTitle;
+        pickerType = PickerViewTypeTwo;
 	}
 
-	if (pickerViewController == nil)
-		pickerViewController = [[PickerViewController alloc] init];
-	
+
+    PickerViewController *pickerViewController = [[PickerViewController alloc] initWithPickerType:pickerType];
 	pickerViewController.lotteryName = lotteryName;
 	pickerViewController.hidesBottomBarWhenPushed = YES;
 	[[self navigationController] pushViewController:pickerViewController animated:YES];
+    [pickerViewController release];
 }
 
 @end
