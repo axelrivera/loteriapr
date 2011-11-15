@@ -58,6 +58,7 @@
 		166975FD12DA841F004CE835 /* front.png in Resources */ = {isa = PBXBuildFile; fileRef = 166975F912DA841F004CE835 /* front.png */; };
 		166975FE12DA841F004CE835 /* front@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 166975FA12DA841F004CE835 /* front@2x.png */; };
 		1669768B12DB5937004CE835 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1669768A12DB5937004CE835 /* iTunesArtwork */; };
+		1669A5D11471ACD1003FD85F /* PrizeLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1669A5D01471ACD1003FD85F /* PrizeLoader.m */; };
 		1673EAA312CA4690009B2255 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673EAA212CA4690009B2255 /* PickerViewController.m */; };
 		1673EAA512CA46A7009B2255 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1673EAA412CA46A7009B2255 /* PickerViewController.xib */; };
 		1673EB3E12CA6AED009B2255 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673EB3D12CA6AED009B2255 /* NSMutableArray+Shuffle.m */; };
@@ -83,6 +84,7 @@
 		1695FF2712C3F68100C8DE7D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1695FF2512C3F68100C8DE7D /* AboutViewController.m */; };
 		1695FF2812C3F68100C8DE7D /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1695FF2612C3F68100C8DE7D /* AboutViewController.xib */; };
 		1695FFB412C4095600C8DE7D /* LotteryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1695FFB312C4095600C8DE7D /* LotteryTableCell.xib */; };
+		1699B9A714717A7600458DCD /* NumberLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1699B9A614717A7600458DCD /* NumberLoader.m */; };
 		169CE75B12D25AFB00F467FC /* FileHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 169CE75A12D25AFB00F467FC /* FileHelpers.m */; };
 		169CE84612D289C900F467FC /* grey_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 169CE84012D289C900F467FC /* grey_button.png */; };
 		169CE84712D289C900F467FC /* grey_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 169CE84112D289C900F467FC /* grey_button@2x.png */; };
@@ -191,6 +193,8 @@
 		166975F912DA841F004CE835 /* front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front.png; sourceTree = "<group>"; };
 		166975FA12DA841F004CE835 /* front@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front@2x.png"; sourceTree = "<group>"; };
 		1669768A12DB5937004CE835 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		1669A5CF1471ACD1003FD85F /* PrizeLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrizeLoader.h; sourceTree = "<group>"; };
+		1669A5D01471ACD1003FD85F /* PrizeLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrizeLoader.m; sourceTree = "<group>"; };
 		1673EAA112CA4690009B2255 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		1673EAA212CA4690009B2255 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		1673EAA412CA46A7009B2255 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 		1695FF2512C3F68100C8DE7D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		1695FF2612C3F68100C8DE7D /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		1695FFB312C4095600C8DE7D /* LotteryTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LotteryTableCell.xib; sourceTree = "<group>"; };
+		1699B9A514717A7600458DCD /* NumberLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberLoader.h; sourceTree = "<group>"; };
+		1699B9A614717A7600458DCD /* NumberLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberLoader.m; sourceTree = "<group>"; };
 		169CE75912D25AFB00F467FC /* FileHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelpers.h; sourceTree = "<group>"; };
 		169CE75A12D25AFB00F467FC /* FileHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelpers.m; sourceTree = "<group>"; };
 		169CE84012D289C900F467FC /* grey_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey_button.png; sourceTree = "<group>"; };
@@ -376,6 +382,10 @@
 				16F7DC6212C7D38500F50025 /* LotteryTwo.m */,
 				16A9D92B1302E11E00733A16 /* LotteryData.h */,
 				16A9D92C1302E11E00733A16 /* LotteryData.m */,
+				1699B9A514717A7600458DCD /* NumberLoader.h */,
+				1699B9A614717A7600458DCD /* NumberLoader.m */,
+				1669A5CF1471ACD1003FD85F /* PrizeLoader.h */,
+				1669A5D01471ACD1003FD85F /* PrizeLoader.m */,
 			);
 			name = "Models + Data";
 			sourceTree = "<group>";
@@ -743,6 +753,8 @@
 				1628B07E131DB15400AC413C /* EditNumberViewController.m in Sources */,
 				1662BA1713293B1B0034C601 /* InAppPurchaseObserver.m in Sources */,
 				1635E633132AAEFF00B269AA /* Reachability.m in Sources */,
+				1699B9A714717A7600458DCD /* NumberLoader.m in Sources */,
+				1669A5D11471ACD1003FD85F /* PrizeLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +765,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -761,6 +774,7 @@
 				INFOPLIST_FILE = "LotteryPR-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Loteria;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
 			name = Debug;
 		};
@@ -768,12 +782,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LotteryPR_Prefix.pch;
 				INFOPLIST_FILE = "LotteryPR-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Loteria;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
