@@ -67,7 +67,10 @@ static PrizeLoader *sharedPrizeLoader_;
     }
 	[reach release];
 	if (!networkAvailable) {
-        // Call Error Delegate method
+        if ([delegate_ respondsToSelector:@selector(failedPrizesUpdateWithErrors:)]) {
+            NSError *error = [NSError errorWithDomain:@"com.riveralabs.loteriapr" code:100 userInfo:nil];
+            [delegate_ performSelectorOnMainThread:@selector(failedPrizesUpdateWithErrors:) withObject:error waitUntilDone:YES];
+        }
 	}
 	
 	// Construct the web service URL
@@ -76,7 +79,7 @@ static PrizeLoader *sharedPrizeLoader_;
     NSError *error = NULL;
     NSString *string = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     
-    if (error != nil) {
+    if (error != NULL) {
         if ([delegate_ respondsToSelector:@selector(failedPrizesUpdateWithErrors:)]) {
             [delegate_ performSelectorOnMainThread:@selector(failedPrizesUpdateWithErrors:) withObject:error waitUntilDone:YES];
         }

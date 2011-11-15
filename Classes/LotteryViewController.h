@@ -16,18 +16,6 @@
 	NumbersViewController *numbersViewController;
     NumberLoader *numberLoader_;
     PrizeLoader *prizeLoader_;
-    
-	
-//	BOOL waitingForItemTitle;
-//	BOOL waitingForItemDate;
-//	
-//	NSMutableDictionary *lotteryNumbers;
-//    NSMutableData *xmlData; 
-//	NSURLConnection *connectionInProgress;
-//	
-//	NSMutableString *tmpString;
-//	NSMutableString *titleString;
-//	NSMutableString *dateString;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *lotteryTable;
