@@ -188,7 +188,7 @@ static LotteryData *sharedLotteryData;
     return self;
 }
 
-- (void)release {
+- (oneway void)release {
     // No op
 }
 

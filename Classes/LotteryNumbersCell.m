@@ -27,7 +27,9 @@
 		
 		self.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
 		self.detailTextLabel.textColor = [UIColor darkGrayColor];
-		[self setNumbersView:[[LotteryBallView alloc] initWithType:LotteryTypeNone ballColor:LotteryBallColorWhite]];
+        LotteryBallView *ballView = [[LotteryBallView alloc] initWithType:LotteryTypeNone ballColor:LotteryBallColorWhite];
+		[self setNumbersView:ballView];
+        [ballView release];
     }
     return self;
 }

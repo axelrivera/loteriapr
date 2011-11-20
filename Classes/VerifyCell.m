@@ -41,7 +41,7 @@
 		self.opaque = YES;
 		// Background Color is Black and Transparent
 		self.backgroundColor = [UIColor whiteColor];
-		self.selectionStyle = UITableViewCellEditingStyleNone;
+		self.selectionStyle = UITableViewCellSelectionStyleNone;
 		
 		// Date Formatter Settings
 		dateFormatter = [[NSDateFormatter alloc] init];
@@ -70,8 +70,10 @@
         // Tell the imageview to resize its image to fit inside its frame
         [logoView setContentMode:UIViewContentModeLeft];
 		
-		[self setNumbersView:[[LotteryBallView alloc] initWithType:LotteryTypeNone ballColor:LotteryBallColorWhite]];
-		[[self contentView] addSubview:numbersView];
+        LotteryBallView *ballView = [[LotteryBallView alloc] initWithType:LotteryTypeNone ballColor:LotteryBallColorWhite];
+		[self setNumbersView:ballView];
+        [ballView release];
+		[self.contentView addSubview:numbersView];
     }
     return self;
 }
