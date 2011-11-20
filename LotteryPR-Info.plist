@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBuildDate</key>
-	<string>Tue Nov 15 10:53:59 AST 2011</string>
+	<string>Tue Nov 15 11:34:29 AST 2011</string>
 	<key>CFBuildNumber</key>
-	<string>1650</string>
+	<string>1654</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -34,10 +34,5 @@
 	<string>MainWindow</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv6</string>
-		<string>armv7</string>
-	</array>
 </dict>
 </plist>
