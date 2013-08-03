@@ -62,6 +62,9 @@
 		1673EAA312CA4690009B2255 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673EAA212CA4690009B2255 /* PickerViewController.m */; };
 		1673EAA512CA46A7009B2255 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1673EAA412CA46A7009B2255 /* PickerViewController.xib */; };
 		1673EB3E12CA6AED009B2255 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673EB3D12CA6AED009B2255 /* NSMutableArray+Shuffle.m */; };
+		1674EC9D1607FC0E00C0E7D4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1674EC9C1607FC0E00C0E7D4 /* Default-568h@2x.png */; };
+		1674ECAA16081E1700C0E7D4 /* trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 1674ECA816081E1700C0E7D4 /* trophy.png */; };
+		1674ECAB16081E1700C0E7D4 /* trophy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1674ECA916081E1700C0E7D4 /* trophy@2x.png */; };
 		1677AA3912F9A16F00A90D60 /* AddNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1677AA3812F9A16F00A90D60 /* AddNumberViewController.m */; };
 		1677AA3B12F9A18600A90D60 /* AddNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1677AA3A12F9A18600A90D60 /* AddNumberViewController.xib */; };
 		1677AA4C12F9B91200A90D60 /* green_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1677AA4A12F9B91200A90D60 /* green_button.png */; };
@@ -200,6 +203,9 @@
 		1673EAA412CA46A7009B2255 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		1673EB3C12CA6AED009B2255 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
 		1673EB3D12CA6AED009B2255 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
+		1674EC9C1607FC0E00C0E7D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1674ECA816081E1700C0E7D4 /* trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trophy.png; sourceTree = "<group>"; };
+		1674ECA916081E1700C0E7D4 /* trophy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trophy@2x.png"; sourceTree = "<group>"; };
 		1677AA3712F9A16F00A90D60 /* AddNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNumberViewController.h; sourceTree = "<group>"; };
 		1677AA3812F9A16F00A90D60 /* AddNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNumberViewController.m; sourceTree = "<group>"; };
 		1677AA3A12F9A18600A90D60 /* AddNumberViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNumberViewController.xib; sourceTree = "<group>"; };
@@ -422,6 +428,8 @@
 		1695FEDF12C3EFA100C8DE7D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1674ECA816081E1700C0E7D4 /* trophy.png */,
+				1674ECA916081E1700C0E7D4 /* trophy@2x.png */,
 				1635C9781326800000B1F136 /* blue_ball.png */,
 				1635C9791326800000B1F136 /* magenta_ball.png */,
 				1635C97A1326800000B1F136 /* orange_ball.png */,
@@ -530,6 +538,7 @@
 			children = (
 				16F0D1811334043D00EC2BE2 /* Default.png */,
 				16F0D1821334043D00EC2BE2 /* Default@2x.png */,
+				1674EC9C1607FC0E00C0E7D4 /* Default-568h@2x.png */,
 				1669768A12DB5937004CE835 /* iTunesArtwork */,
 				167AC2C112D3DB1F001615D6 /* Icon-72.png */,
 				167AC2C212D3DB1F001615D6 /* Icon-Small-50.png */,
@@ -697,6 +706,9 @@
 				1635C9851326800000B1F136 /* yellow_ball.png in Resources */,
 				16F0D1831334043D00EC2BE2 /* Default.png in Resources */,
 				16F0D1841334043D00EC2BE2 /* Default@2x.png in Resources */,
+				1674EC9D1607FC0E00C0E7D4 /* Default-568h@2x.png in Resources */,
+				1674ECAA16081E1700C0E7D4 /* trophy.png in Resources */,
+				1674ECAB16081E1700C0E7D4 /* trophy@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,8 +787,9 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LotteryPR_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "LotteryPR-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = Loteria;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
@@ -794,8 +807,9 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LotteryPR_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "LotteryPR-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = Loteria;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;

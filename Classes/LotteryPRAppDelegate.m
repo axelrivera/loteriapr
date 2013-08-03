@@ -31,12 +31,13 @@
 	
     // Override point for customization after application launch.
 		
-	[[tabBarController.viewControllers objectAtIndex:0] setTitle:@"Ganadores"];
-	[[tabBarController.viewControllers objectAtIndex:1] setTitle:@"Verificar"];
-	[[tabBarController.viewControllers objectAtIndex:2] setTitle:@"Mis Números"];
-	[[tabBarController.viewControllers objectAtIndex:3] setTitle:@"Automática"];
+	[[self.tabBarController.viewControllers objectAtIndex:0] setTitle:@"Ganadores"];
+	[[self.tabBarController.viewControllers objectAtIndex:1] setTitle:@"Verificar"];
+	[[self.tabBarController.viewControllers objectAtIndex:2] setTitle:@"Mis Números"];
+	[[self.tabBarController.viewControllers objectAtIndex:3] setTitle:@"Automática"];
+	[[self.tabBarController.viewControllers objectAtIndex:4] setTitle:@"Premios"];
 	
-    [self.window addSubview:tabBarController.view];
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
     return YES;

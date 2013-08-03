@@ -23,9 +23,6 @@
 @implementation LotteryViewController
 
 @synthesize lotteryTable = lotteryTable_;
-@synthesize topView = topView_;
-@synthesize lotoPrizeLabel = lotoPrizeLabel_;
-@synthesize revanchaPrizeLabel = revanchaPrizeLabel_;
 @synthesize lotteryNumbers;
 
 - (void)viewDidLoad {
@@ -36,21 +33,12 @@
 	barButtonItem.title = @"Ganadores";
 	self.navigationItem.backBarButtonItem = barButtonItem;
 	[barButtonItem release];
-	
-    topView_.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"topbar.png"]];
-    
-    //lotoPrizeLabel_.textColor = [UIColor colorWithRed:56.0/255.0 green:84.0/255.0 blue:135.0/255.0 alpha:1.0];
-    lotoPrizeLabel_.text = @"";
-    //revanchaPrizeLabel_.textColor = [UIColor colorWithRed:56.0/255.0 green:84.0/255.0 blue:135.0/255.0 alpha:1.0];
-    revanchaPrizeLabel_.text = @"";
     
 	[self showInfoButtonItem];
 	[self showRefreshButtonItem];
 	[self setLotteryNumbers:[NSDictionary dictionaryWithDictionary:[[LotteryData sharedLotteryData] latestNumbers]]];
     numberLoader_ = [NumberLoader sharedNumberLoader];
     numberLoader_.delegate = self;
-    prizeLoader_ = [PrizeLoader sharedPrizeLoader];
-    prizeLoader_.delegate = self;
     [self.lotteryTable reloadData];
     [self loadNumbers];
 }
@@ -61,20 +49,13 @@
 
 - (void)viewDidUnload {
     lotteryTable_ = nil;
-    topView_ = nil;
-    lotoPrizeLabel_ = nil;
-    revanchaPrizeLabel_ = nil;
 	lotteryNumbers = nil;
 	[super viewDidUnload];
 }
 
 - (void)dealloc {
     numberLoader_.delegate = nil;
-    prizeLoader_.delegate = nil;
     [lotteryTable_ release];
-    [topView_ release];
-    [lotoPrizeLabel_ release];
-    [revanchaPrizeLabel_ release];
 	[lotteryNumbers release];
     [super dealloc];
 }
@@ -85,7 +66,6 @@
 - (void)loadNumbers
 {
     [numberLoader_ load];
-    [prizeLoader_ load];
 }
 
 - (void)loadAbout {
@@ -168,7 +148,8 @@
 		[cell setPegaDos:pegaDos];
 	}
 	
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	cell.accessoryType = UITableViewCellAccessoryNone;
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -181,25 +162,25 @@
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [aTableView deselectRowAtIndexPath:indexPath animated:YES];
-	if (linkViewController == nil) {
-		linkViewController = [[LinkViewController alloc] init];
-	}
-	
-	if (indexPath.row == 0) {
-		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:LotoKey]];
-	} else if (indexPath.row == 1) {
-		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:RevanchaKey]];
-	} else if (indexPath.row == 2) {
-		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:PegaCuatroKey]];
-	} else if (indexPath.row == 3) {
-		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:PegaTresKey]];
-	} else if (indexPath.row == 4) {
-		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:PegaDosKey]];
-	}
-
-	linkViewController.hidesBottomBarWhenPushed = YES;
-	[[self navigationController] pushViewController:linkViewController 
-										   animated:YES];
+//	if (linkViewController == nil) {
+//		linkViewController = [[LinkViewController alloc] init];
+//	}
+//	
+//	if (indexPath.row == 0) {
+//		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:LotoKey]];
+//	} else if (indexPath.row == 1) {
+//		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:RevanchaKey]];
+//	} else if (indexPath.row == 2) {
+//		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:PegaCuatroKey]];
+//	} else if (indexPath.row == 3) {
+//		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:PegaTresKey]];
+//	} else if (indexPath.row == 4) {
+//		[linkViewController setActiveLottery:[lotteryNumbers objectForKey:PegaDosKey]];
+//	}
+//
+//	linkViewController.hidesBottomBarWhenPushed = YES;
+//	[[self navigationController] pushViewController:linkViewController 
+//										   animated:YES];
 }
 
 #pragma mark - Number Loader Delegate
@@ -216,7 +197,7 @@
 - (void)failedNumbersUpdateWithErrors:(NSError *)error
 {
     if (error) {
-        NSString *errorStr = @"Hubo un error al accesar la información o la conección de Internet no esta disponible.";
+        NSString *errorStr = @"Parece que la pagina web de la Lotería Electrónica esta teniendo problemas o la conexion de Internet no está disponible.";
         [self performSelector:@selector(loadError:) withObject:errorStr];
         [self.lotteryTable reloadData];
     }
@@ -230,28 +211,6 @@
 - (void)didFinishUpdatingNumbers
 {
     [self showRefreshButtonItem];
-}
-
-#pragma mark - Prize Loader Delegate
-
-- (void)updatedPrizes:(NSDictionary *)prizes
-{
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    formatter.maximumFractionDigits = 0;
-    lotoPrizeLabel_.text = [NSString stringWithFormat:@"La Loto está en %@",
-                            [formatter stringFromNumber:[prizes objectForKey:LotoKey]]];
-    revanchaPrizeLabel_.text = [NSString stringWithFormat:@"y la Revancha en %@",
-                                [formatter stringFromNumber:[prizes objectForKey:RevanchaKey]]];
-    [formatter release];
-}
-
-- (void)failedPrizesUpdateWithErrors:(NSError *)error
-{
-    if (error) {
-        NSString *errorStr = @"La información sobre los premios no esta disponible.";
-        [self performSelector:@selector(loadError:) withObject:errorStr];
-    }
 }
 
 - (void)loadError:(NSString *)errorStr

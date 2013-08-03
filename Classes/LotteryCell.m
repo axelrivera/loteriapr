@@ -44,7 +44,7 @@
 		
         dateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		[dateLabel setFont:[UIFont fontWithName:@"Helvetica" size:14]];
-		//[dateLabel setTextColor:[UIColor darkGrayColor]];
+		[dateLabel setTextColor:[UIColor darkGrayColor]];
 		[dateLabel setTextAlignment:UITextAlignmentRight];
 		[[self contentView] addSubview:dateLabel];
 		
@@ -87,11 +87,6 @@
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
 	[super setHighlighted:highlighted animated:animated];
-	if (self.highlighted) {
-		[dateLabel setTextColor:[UIColor whiteColor]];
-	} else {
-		[dateLabel setTextColor:[UIColor darkGrayColor]];
-	}
 }
 
 - (void)dealloc {

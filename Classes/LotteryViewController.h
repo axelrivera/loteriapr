@@ -11,17 +11,13 @@
 @class LinkViewController;
 @class NumbersViewController;
 
-@interface LotteryViewController : UIViewController <NumberLoaderDelegate, PrizeLoaderDelegate> {
+@interface LotteryViewController : UIViewController <NumberLoaderDelegate> {
 	LinkViewController *linkViewController;
 	NumbersViewController *numbersViewController;
     NumberLoader *numberLoader_;
-    PrizeLoader *prizeLoader_;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *lotteryTable;
-@property (nonatomic, retain) IBOutlet UIView *topView;
-@property (nonatomic, retain) IBOutlet UILabel *lotoPrizeLabel;
-@property (nonatomic, retain) IBOutlet UILabel *revanchaPrizeLabel;
 @property (nonatomic, retain) NSDictionary *lotteryNumbers;
 
 - (void)loadNumbers;

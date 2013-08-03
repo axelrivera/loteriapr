@@ -118,6 +118,8 @@
 	
 	[picker setSubject:@"Loteria Puerto Rico Feedback"];
 	
+	[picker setMessageBody:@"Estoy usando Loteria Puerto Rico y me gustaría enviar la siguiente sugerencia:" isHTML:NO];
+	
 	[self presentModalViewController:picker animated:YES];
     [picker release];
 }

@@ -221,6 +221,17 @@ didStartElement:(NSString *)elementName
 	
 	if([elementName isEqual:xmlItem]) {
 		NSArray *titleAndNumber = [titleString_ componentsSeparatedByString:xmlTitleDivider];
+		if ([titleAndNumber count] == 1) {
+			titleAndNumber = [titleString_ componentsSeparatedByString:@"- "];
+		}
+		
+		if ([titleAndNumber count] == 1) {
+			titleAndNumber = [titleString_ componentsSeparatedByString:@" -"];
+		}
+		
+		if ([titleAndNumber count] == 1) {
+			titleAndNumber	= @[@"", @""];
+		}
 		
 		if ([LotoTitle isEqualToString:[titleAndNumber objectAtIndex:0]]) {
 			LotterySix *loto = [[LotterySix alloc] initWithName:LotoTitle

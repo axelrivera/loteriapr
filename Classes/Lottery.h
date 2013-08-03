@@ -5,6 +5,9 @@
 //  Copyright 2010 Axel Rivera. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+#import "Constants.h"
+
 typedef enum { LotteryPlayTypeNone, LotteryPlayTypeExact, LotteryPlayTypeCombined, LotteryPlayTypeExactCombined } LotteryPlayType;
 
 @interface Lottery : NSObject <NSCoding> {

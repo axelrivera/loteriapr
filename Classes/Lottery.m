@@ -124,6 +124,8 @@
 }
 
 - (NSDate *)toDateFromString:(NSString *)dateString {
+	NSString *string = [dateString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	string = [string stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
 	
@@ -131,9 +133,9 @@
 	[usLocale release];
 	
 	[formatter setTimeZone:[NSTimeZone systemTimeZone]];
-	[formatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss zzz"];
+	[formatter setDateFormat:@"MM/dd/yyyy"];
 	
-	NSDate *date = [formatter dateFromString: dateString];
+	NSDate *date = [formatter dateFromString:string];
 	
 	if (date == nil)
 		date = [NSDate date];
