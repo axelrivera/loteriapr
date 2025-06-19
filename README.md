@@ -45,6 +45,10 @@ A native iOS application for tracking Puerto Rico lottery games, built as a firs
 - **UI Framework**: XIB-based interface files with programmatic customization
 - **Storage**: File-based persistence using NSCoding protocol
 
+## Screenshots
+
+See the [Screenshots](./Screenshots) directory for additional app screenshots and interface examples.
+
 ## Project Status
 
 **Archived** - This project represents early iOS development work and is preserved for historical reference. Built during the iOS 4/5 era using pre-ARC Objective-C patterns and manual memory management.
